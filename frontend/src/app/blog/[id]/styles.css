@@ -1,0 +1,12 @@
+.article h1{
+    font-size: 2rem;
+    margin: .5rem 0;
+}
+
+.article p{
+    padding: .5rem 0;
+}
+
+.article div{
+    padding: .3rem 0;
+}

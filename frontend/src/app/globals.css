@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+}
+
+body {
+}
+
+.custom-underline{
+  
+}
+
+.custom-underline::after {
+  content: "";
+  display: block;
+  width: 10%;
+  margin: 0 auto;
+  height: 3px;
+  background-color: #0E21A0;
+}
+
+.about-header {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url("https://cdn.pixabay.com/photo/2016/03/26/13/09/workspace-1280538_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: transparent !important;
+}
+
+@media (max-width: 600px) {
+  .carousel .control-prev.control-arrow {
+    top: 20%;
+  }
+
+  .carousel .control-next.control-arrow {
+    top: 20%;
+  }
+}
+
+.cta-section {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("https://cdn.pixabay.com/photo/2021/10/09/06/23/stock-market-6693060_1280.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 60vh;
+  width: 100%;
+}
