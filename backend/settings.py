@@ -64,7 +64,7 @@ ROOT_URLCONF = 'backend.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'frontend/build/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,7 +125,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'frontend/build/static')
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -135,9 +139,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # media 
 MEDIA_URL='/media/' # media url
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'frontend/public/assets/images') # were media files are located
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media/images') # were media files are located
 
-REDIRECT_URL = 'localhost:8000'
+REDIRECT_URL = 'localhost:3000'
 
 # stripe payments
 
@@ -152,7 +156,7 @@ AUTH_USER_MODEL = 'UserAuthApp.CustomUser'
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:8000",  # Add the origin(s) of your frontend here
+    "http://localhost:3000",  # Add the origin(s) of your frontend here
 ]
 
 CORS_ALLOW_METHODS = [
@@ -168,4 +172,11 @@ CORS_ALLOW_HEADERS = [
     'Accept-Encoding',
     'Authorization',
     'Content-Type',
+]
+
+# React routes
+REACT_ROUTES = [
+    '/',
+    'courses',
+    'about',
 ]

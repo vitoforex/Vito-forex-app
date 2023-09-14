@@ -1,0 +1,12 @@
+export {default as Home} from './home/page';
+export {default as About} from './about/page';
+export {default as Blog} from './blog/page';
+export {default as Contact} from './contact/page';
+export {default as Courses} from './courses/page';
+export {default as Login} from './login/page';
+export {default as Mentorship} from './mentorship/page';
+export {default as Password_reset} from './password_reset/page';
+// export {default as Payment} from './payment/page';
+// export {default as Posts} from './posts/page';
+export {default as Register} from './register/page';
+export {default as Signals} from './signals/page';
