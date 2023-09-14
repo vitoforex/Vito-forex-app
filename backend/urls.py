@@ -30,4 +30,7 @@ urlpatterns = [
     path("courses_api/", include("CoursesApp.urls")),
     path("blog_api/", include("BlogApp.urls")),
     
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, )
