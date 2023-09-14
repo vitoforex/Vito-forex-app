@@ -18,14 +18,12 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from django.conf.urls import url
 from django.views.generic import TemplateView
 
 routes = getattr(settings, 'REACT_ROUTES', [])
 
 urlpatterns = [
-    #path("", TemplateView.as_view(template_name='index.html')),
-    url(r'^(%s)?$' % '|'.join(routes), TemplateView.as_view(template_name='index.html')),
+    path("", TemplateView.as_view(template_name='index.html')),
     path('admin/', admin.site.urls),
     path("auth/", include("UserAuthApp.urls")),
     path("payment/", include("PaymentsApp.urls")),
