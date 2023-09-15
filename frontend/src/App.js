@@ -19,6 +19,7 @@ import axios from "axios";
 
 
 function App() {
+  console.log(process.env)
   return (
     <main className="App ">
       <Navbar/>
