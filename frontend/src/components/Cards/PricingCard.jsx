@@ -3,24 +3,24 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
-import { Navigate } from 'react-router-dom'
-
+import { useNavigate } from 'react-router-dom'
 import Provider from 'react-redux'
 import { store } from '../../store/store'
 import axios from 'axios'
 
 const PricingCard = ({price, months, title, features, restricted, save, tag, original_price}) => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
+    const navigate = useNavigate();
 
     async function Checkout(){
+        console.log('clicking', isLoggedIn)
         if (isLoggedIn === false){
-            <Navigate to={'/login'}/>
-            return;
+            return navigate('/login');
         }else{
             let data = {
                price: 'price_1NnLVzCOWoAHqo4JxQvj4wMF',
             }
-            const response = await axios.post('/payment/checkout', JSON.stringify(data), {
+            const response = await axios.post('http://127.0.0.1:8000/payment/checkout', JSON.stringify(data), {
                 headers:{
                     "Content-Type": "application/json",
                     "Access-Control-Allow-Origin": "*",

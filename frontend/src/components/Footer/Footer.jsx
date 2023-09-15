@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faWhatsapp,
@@ -8,11 +8,20 @@ import {
   faYoutube,
   faInstagram,
 } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";;
+import { Link, useLoaderData } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Footer = () => {
+  const pathname = useLocation();
+  const [currentPath, setCurrentPath] = useState('')
+
+  useEffect(() => {
+    setCurrentPath(pathname.pathname);
+  })
+
   return (
-    <footer className="bg-black py-8 self-end bottom-0 static">
+     <>
+    {currentPath != '/dashboard' && <footer className="bg-black py-8 self-end bottom-0 static">
       <div className="mx-auto w-[90%]">
         <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 text-white gap-9">
           <div className="flex flex-col sm:items-start items-center">
@@ -122,7 +131,8 @@ const Footer = () => {
           </span>
         </div>
       </div>
-    </footer>
+    </footer>}
+     </>
   );
 };
 

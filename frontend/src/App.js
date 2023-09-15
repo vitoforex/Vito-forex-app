@@ -11,16 +11,19 @@ import {
   Login,
   Register,
   Password_reset,
+  Dashboard
 
 } from "./pages";
 import { Navbar, Footer } from "./components";
+import axios from "axios";
 
 
 function App() {
   return (
-    <main className="App">
+    <main className="App ">
       <Navbar/>
-      <Routes>
+   <div className="flex flex-col">
+   <Routes>
         <Route
           path="/"
           element={
@@ -94,9 +97,7 @@ function App() {
         <Route
           path="/dashboard"
           element={
-            <h1 className="text-6xl bg-slate-600 text-white font-extrabold p-20">
-              dashboard
-            </h1>
+            <Dashboard/>
           }
         />
         <Route
@@ -106,6 +107,7 @@ function App() {
           }
         />
       </Routes>
+   </div>
       <Footer/>
     </main>
   );

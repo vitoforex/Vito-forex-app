@@ -49,10 +49,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -164,23 +164,33 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",  # Add the origin(s) of your frontend here
+    "https://joshuab.pythonanywhere.com",
+    "http://127.0.0.1:8000",
 ]
 
-CORS_ALLOW_METHODS = [
-    'GET',
-    'POST',
-    'PUT',
-    'DELETE',
-    'OPTIONS',  # Allow preflight requests
-]
+CORS_ALLOW_METHODS = (
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+)
 
-CORS_ALLOW_HEADERS = [
-    'Accept',
-    'Accept-Encoding',
-    'Authorization',
-    'Content-Type',
-]
+CORS_ALLOW_HEADERS = (
+    "accept",
+    "authorization",
+    "content-type",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+)
 
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",  # Add the origin(s) of your frontend here
+    "https://joshuab.pythonanywhere.com",
+    "http://127.0.0.1:8000",
+]
 # React routes
 REACT_ROUTES = [
     '/',

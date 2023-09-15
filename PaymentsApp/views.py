@@ -30,6 +30,7 @@ def create_checkout_session(request):
             success_url="http://localhost:8000/payment/success",
             cancel_url="http://localhost:8000/payment/cancel",
         )
+
         return redirect(checkout_session.url, status=303)
     
 

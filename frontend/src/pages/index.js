@@ -10,3 +10,4 @@ export {default as Password_reset} from './password_reset/page';
 // export {default as Posts} from './posts/page';
 export {default as Register} from './register/page';
 export {default as Signals} from './signals/page';
+export {default as Dashboard } from './dashboard/Dashboard';

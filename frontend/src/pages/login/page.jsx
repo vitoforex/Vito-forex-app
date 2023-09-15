@@ -3,11 +3,13 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateUserIsLoggedIn } from "../../features/authSlice";
 import { Navigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const Page = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
  
 
   function emailHandler(e) {
@@ -24,7 +26,7 @@ const Page = () => {
       email,
       password,
     };
-    let response = await axios.post("/auth/login", JSON.stringify(data), {
+    let response = await axios.post("http://127.0.0.1:8000/auth/login", JSON.stringify(data), {
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,7 +34,7 @@ const Page = () => {
     if (response.status === 200){
       dispatch(updateUserIsLoggedIn(true))
       localStorage.setItem('isAuthenticated', 'true');
-      <Navigate to={'/signals'}/>
+      return navigate('/dashboard')
 
     }
   }
