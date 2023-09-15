@@ -33,7 +33,7 @@ const Page = () => {
       last_name:lastName,
     }
     console.log(data)
-    let response = await axios.post('/auth/register', JSON.stringify(data), {
+    let response = await axios.post('http://127.0.0.1:8000/auth/register', JSON.stringify(data), {
       headers: {
         'Content-Type': 'application/json'
       }

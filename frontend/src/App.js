@@ -73,10 +73,10 @@ function App() {
           }
         />
         <Route
-          path="/payment"
+          path="/payment/success*"
           element={
             <h1 className="text-6xl bg-slate-600 text-white font-extrabold p-20">
-              payment
+              Success
             </h1>
           }
         />

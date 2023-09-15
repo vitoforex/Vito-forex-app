@@ -21,26 +21,26 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-27_!hoop8bmv8@2d#+ra-6*2z!ac^gr)&9c+u%#=jd9piy@2ww'
+SECRET_KEY = "django-insecure-27_!hoop8bmv8@2d#+ra-6*2z!ac^gr)&9c+u%#=jd9piy@2ww"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','joshuab.pythonanywhere.com']
+ALLOWED_HOSTS = ["*", "joshuab.pythonanywhere.com"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
-    'ckeditor',
+    "ckeditor",
     "UserAuthApp",
-    'corsheaders',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "corsheaders",
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
     "django_nextjs",
     "PagesApp",
     "PaymentsApp",
@@ -49,45 +49,48 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-ROOT_URLCONF = 'backend.urls'
+ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'frontend/build/')],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [
+            os.path.join(BASE_DIR, "frontend/build/"),
+            os.path.join(BASE_DIR, "templates"),
+        ],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'backend.wsgi.application'
+WSGI_APPLICATION = "backend.wsgi.application"
 
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -97,16 +100,16 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
@@ -114,9 +117,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
 
@@ -126,14 +129,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = "/static/"
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'frontend/build/static')
-]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/build/static")]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -141,29 +142,29 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-# media 
-MEDIA_URL='/media/' # media url
+# media
+MEDIA_URL = "/media/"  # media url
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media/images') # were media files are located
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/images")  # were media files are located
 
-REDIRECT_URL = 'localhost:3000'
+REDIRECT_URL = "localhost:3000"
 
 # stripe payments
 
-STRIPE_SECRET_KEY_TEST = 'sk_test_51NnLJiCOWoAHqo4JynKkzgl7VtwPjzbkKPnBREjlXZ2W0PFynxa5oz3eRWxE7bxggafuwMva3XuusoNE4JiiqZn00072uwh35o'
+STRIPE_SECRET_KEY_TEST = "sk_test_51NnLJiCOWoAHqo4JynKkzgl7VtwPjzbkKPnBREjlXZ2W0PFynxa5oz3eRWxE7bxggafuwMva3XuusoNE4JiiqZn00072uwh35o"
 
-STRIPE_WEB_HOOK_TEST = 'sk_test_4eC39HqLyjWDarjtT1zdp7dc'
+STRIPE_WEB_HOOK_TEST = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
 
 
 # custom user model
-AUTH_USER_MODEL = 'UserAuthApp.CustomUser'
+AUTH_USER_MODEL = "UserAuthApp.CustomUser"
 # cors
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  # Add the origin(s) of your frontend here
+    "http://127.0.0.1:3000",  # Add the origin(s) of your frontend here
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
 ]
@@ -187,13 +188,13 @@ CORS_ALLOW_HEADERS = (
 )
 
 CSRF_TRUSTED_ORIGINS = [
-    "http://localhost:3000",  # Add the origin(s) of your frontend here
+    "http://127.0.0.1:3000",  # Add the origin(s) of your frontend here
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
 ]
 # React routes
 REACT_ROUTES = [
-    '/',
-    'courses',
-    'about',
+    "/",
+    "courses",
+    "about",
 ]

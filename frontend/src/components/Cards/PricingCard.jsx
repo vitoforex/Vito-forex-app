@@ -23,10 +23,14 @@ const PricingCard = ({price, months, title, features, restricted, save, tag, ori
             const response = await axios.post('http://127.0.0.1:8000/payment/checkout', JSON.stringify(data), {
                 headers:{
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "*",
+                   
                 }
             })
             console.log(response)
+            if (response.status === 200){
+                let redirect_checkout_url = response.data.url;
+                window.location.replace(redirect_checkout_url)
+            }
         }
     }
 
