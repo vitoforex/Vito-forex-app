@@ -2,16 +2,19 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateUserIsLoggedIn } from "../../features/authSlice";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { GenericButton } from "../../components";
+import Cookies from "js-cookie";
+import { ToastContainer, toast } from "react-toastify";
 
 const Page = () => {
+  const token = Cookies.get("csrftoken");
+
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
- 
 
   function emailHandler(e) {
     setEmail(e.target.value);
@@ -27,17 +30,46 @@ const Page = () => {
       email,
       password,
     };
-    let response = await axios.post("http://127.0.0.1:8000/auth/login", JSON.stringify(data), {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    console.log(response)
-    if (response.status === 200){
-      dispatch(updateUserIsLoggedIn(true))
-      localStorage.setItem('isAuthenticated', 'true');
-      return navigate('/dashboard')
 
+    try {
+      let response = await axios.post(
+        "/auth/login",
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials:true,
+        },
+        
+      );
+      console.log(response);
+      if (response.status === 200) {
+        dispatch(updateUserIsLoggedIn(true));
+        localStorage.setItem("isAuthenticated", "true");
+        toast("Logged in successfully", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+        return navigate("/dashboard");
+      }
+    } catch {
+      toast("An error occured while logging you in!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   }
 
@@ -65,7 +97,7 @@ const Page = () => {
                     Your email
                   </label>
                   <input
-                  onChange={emailHandler}
+                    onChange={emailHandler}
                     type="email"
                     name="email"
                     id="email"
@@ -92,7 +124,6 @@ const Page = () => {
                   />
                 </div>
                 <div className="flex items-center justify-between">
-                  
                   <a
                     to="#"
                     className="text-sm font-medium text-primary-600 hover:underline "
@@ -102,16 +133,16 @@ const Page = () => {
                 </div>
                 <GenericButton
                   onClick={onSubmitHandler}
-                  text={'Sign in'}
+                  text={"Sign in"}
                   classes="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                 />
-                  
+
                 <p className="text-sm font-light text-gray-500 ">
                   Don’t have an account yet?{" "}
                   <a
                     to="#"
                     className="font-medium text-primary-600 hover:underline "
-                    onClick={()=>navigate('/register')}
+                    onClick={() => navigate("/register")}
                   >
                     Sign up
                   </a>

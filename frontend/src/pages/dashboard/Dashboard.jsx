@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Logo from "../../assets/images/logo.jpg";
 import { Link } from "react-router-dom";
 import {
@@ -20,12 +20,28 @@ const Dashboard = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [activeTab, setActiveTab] = useState(0);
+    const [name, setName] = useState('');
     function updateActiveTab(tabNum){
         setActiveTab(tabNum);
     }
+
+    useEffect(()=>{
+      try {
+        const response = axios.get('/auth/user_status', {
+          withCredentials:true,
+        });
+        if (response.data.email){
+          setName(response.data.first_name)
+        }else{
+          navigate('/login')
+        }
+      }catch{
+        console.log('Unexpected error has occured')
+      }
+    }, [])
     
     const  logoutHandler = async () => {
-        const response = await axios.post('http://127.0.0.1:8000/auth/logout')
+        const response = await axios.post('/auth/logout')
         if (response.status === 200){
          dispatch(updateUserIsLoggedIn(false));
          localStorage.setItem('isAuthenticated', 'false');

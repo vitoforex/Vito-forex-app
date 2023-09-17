@@ -16,12 +16,15 @@ import {
 } from "./pages";
 import { Navbar, Footer } from "./components";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
   console.log(process.env)
   return (
     <main className="App ">
+     <ToastContainer />
       <Navbar/>
    <div className="flex flex-col">
    <Routes>
