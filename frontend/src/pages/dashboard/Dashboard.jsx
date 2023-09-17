@@ -12,7 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserIsLoggedIn } from "../../features/authSlice";
 
@@ -26,26 +26,33 @@ const Dashboard = () => {
     }
 
     useEffect(()=>{
+     async function getUserStatus(){
       try {
-        const response = axios.get('/auth/user_status', {
-          withCredentials:true,
-        });
+        const response = await axios.get('/auth/user_status');
         if (response.data.email){
+          console.log(response)
           setName(response.data.first_name)
         }else{
           navigate('/login')
+          // make a toast tell a user their session expired
         }
       }catch{
         console.log('Unexpected error has occured')
       }
+     }
+     getUserStatus();
     }, [])
     
     const  logoutHandler = async () => {
         const response = await axios.post('/auth/logout')
-        if (response.status === 200){
-         dispatch(updateUserIsLoggedIn(false));
-         localStorage.setItem('isAuthenticated', 'false');
-         navigate('/')
+        try {
+          if (response.status === 200){
+            dispatch(updateUserIsLoggedIn(false));
+            localStorage.setItem('isAuthenticated', 'false');
+            navigate('/')
+           }
+        }catch{
+          console.log('An error occured while logging you out!')
         }
        }
   return (
@@ -70,7 +77,7 @@ const Dashboard = () => {
             </div>
             <div className="mx-2">
                 <span className="font-bold underline underline-offset-1 text-[13px] text-white">
-                    Welcome David
+                    Welcome {name}!
                 </span>
             </div>
             <div className="ml-2">
@@ -94,24 +101,14 @@ const Dashboard = () => {
                 onClick={()=>updateActiveTab(0)}
               />
               <GenericButton
-                text={"85% win-rateof currecy pairs"}
+                text={"Trade Breakdown"}
                 classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
                 onClick={()=>updateActiveTab(1)}
               />
               <GenericButton
-                text={"Calculated and managed risk"}
-                classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={()=>updateActiveTab(2)}
-              />
-              <GenericButton
-                text={"Trade Breakdown"}
-                classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={()=>updateActiveTab(3)}
-              />
-              <GenericButton
                 text={"Daily setups"}
                 classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={()=>updateActiveTab(4)}
+                onClick={()=>updateActiveTab(2)}
               />
               <GenericButton
                 text={"Exit"}
@@ -122,10 +119,8 @@ const Dashboard = () => {
           </div>
           <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto">
                 {activeTab===0 && <Signals/>}
-                {activeTab===1 && <WinRate/>}
-                {activeTab===2 && <CalculatedRisk/>}
-                {activeTab===3 && <TradeBreakdown/>}
-                {activeTab===4 && <DailySetups/>}
+                {activeTab===1 && <TradeBreakdown/>}
+                {activeTab===2 && <DailySetups/>}
           </div>
         </div>
       </main>

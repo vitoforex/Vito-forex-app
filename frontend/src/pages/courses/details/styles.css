@@ -1,34 +1,34 @@
-h1{
+.course_page h1{
     color: #000;
     font-weight: bold;
     font-size: 3rem;
 }
 
-h2{
+.course_page h2{
     color: #000;
     font-weight: bold;
     font-size: 2.6rem;
 }
 
-h3{
+.course_page h3{
     color: #000;
     font-weight: bold;
     font-size: 2.3rem;
 }
 
-h4{
+.course_page h4{
     color: #000;
     font-weight: bold;
     font-size: 2rem;
 }
 
-h5{
+.course_page h5{
     color: #000;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-h6{
+.course_page h6{
     color: #000;
     font-weight: bold;
     font-size: 1rem;
@@ -40,10 +40,10 @@ h6{
     color: rgb(23, 23, 120);
 }
 
-h1, h2, h3, h4, h5, h6{
+.course_page h1, .course_page h2, .course_page h3, .course_page h4, .course_page h5,.course_page h6{
     padding: .5rem 0;
 }
 
-a, p, div, img{
+.course_page a, .course_page p, .course_page div, .course_page img{
     padding: 0.4rem 0;
 }

@@ -11,13 +11,14 @@ const Page = () => {
   const [courses, setCourses] = useState(null);
   useEffect(()=>{
     async function fetchCourses() {
-      const response = await axios('http://127.0.0.1:8000/courses_api');
+      const response = await axios.get('/courses_api/');
       console.log(response)
-      console.log(response.data?.courses)
       setCourses(response.data?.courses)
     }
     fetchCourses()
   }, [])
+
+  console.log(courses)
   return (
     <main className="flex-grow">
       <div className="mx-auto w-[90%]">
@@ -43,7 +44,7 @@ const Page = () => {
                     <div className="w-full h-10 text-center">
                       <FontAwesomeIcon size="2xl" icon={faSchool} className="text-primary"/>
                     </div>
-                    <h1 className="text-white capitalize text-center font-bold">
+                    <h1 className="text-white capitalize text-center font-bold text-[15px]">
                       {course.title}
                     </h1>
                   </div>

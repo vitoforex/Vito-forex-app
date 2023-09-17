@@ -1,22 +1,22 @@
-
 import React, {useState, useEffect} from 'react'
-import { usePathname } from 'next/navigation'
+import { useParams } from 'react-router-dom';
 import axios from 'axios'
-import ReactHtmlParser from 'react-html-parser';
 import './styles.css';
-import { GenericButton } from '../../../../components';
+import { GenericButton } from '../../../components';
 
 
-const page = () => {
+const Page = () => {
 const [courseDetails, setCourseDetails] = useState(null)
-const pathname = usePathname();
-const url_parts = pathname.split('/');
-const id = url_parts[url_parts.length - 1];
+const params = useParams();
+const id = params.id;
 
-useEffect(async ()=> {
+useEffect(()=>{
+  const getCourseDetails = async ()=> {
     const response = await axios.get(`/courses_api/course/${id}`)
     console.log(response)
     setCourseDetails(response.data)
+}
+getCourseDetails();
 }, [])
 
 
@@ -27,8 +27,8 @@ useEffect(async ()=> {
             courseDetails===null?'Loading...': (<div className='px-10 w-[90%] overflow-hidden  flex flex-col justify-center items-center py-10'>
               <div className="">
               <h1 className='text-center'>{courseDetails.title}</h1>
-                <div className="mx-auto max-w-[90%]  flex flex-col justify-center items-center">
-                    {ReactHtmlParser(courseDetails.description)}
+                <div className="mx-auto max-w-[90%]  flex flex-col justify-center items-center" dangerouslySetInnerHTML={{ __html: courseDetails.description }}>
+                    
                 </div>
                 <div className="flex justify-center items-center">
                 <GenericButton
@@ -43,4 +43,4 @@ useEffect(async ()=> {
   )
 }
 
-export default page
+export default Page

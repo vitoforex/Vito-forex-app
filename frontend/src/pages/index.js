@@ -1,8 +1,10 @@
 export {default as Home} from './home/page';
 export {default as About} from './about/page';
 export {default as Blog} from './blog/page';
+export {default as BlogDetails} from './blog/details/page';
 export {default as Contact} from './contact/page';
 export {default as Courses} from './courses/page';
+export {default as CourseDetails} from './courses/details/page';
 export {default as Login} from './login/page';
 export {default as Mentorship} from './mentorship/page';
 export {default as Password_reset} from './password_reset/page';

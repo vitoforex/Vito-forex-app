@@ -5,13 +5,15 @@ import {
   About,
   Signals,
   Courses,
+  CourseDetails,
   Blog,
+  BlogDetails,
   Contact,
   Mentorship,
   Login,
   Register,
   Password_reset,
-  Dashboard
+  Dashboard,
 
 } from "./pages";
 import { Navbar, Footer } from "./components";
@@ -47,6 +49,10 @@ function App() {
           }
         />
         <Route
+          path="/blog/:id"
+          element={<BlogDetails/>}
+        />
+        <Route
           path="/contact"
           element={
            <Contact/>
@@ -56,6 +62,12 @@ function App() {
           path="/courses"
           element={
            <Courses/>
+          }
+        />
+        <Route
+          path="/courses/:id"
+          element={
+           <CourseDetails/>
           }
         />
         <Route

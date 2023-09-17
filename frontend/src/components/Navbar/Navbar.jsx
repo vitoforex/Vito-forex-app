@@ -34,12 +34,16 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const logoutHandler = async () => {
-    const response = await axios.post("http://127.0.0.1:8000/auth/logout");
+   try {
+    const response = await axios.post("/auth/logout");
     if (response.status === 200) {
       dispatch(updateUserIsLoggedIn(false));
       localStorage.setItem("isAuthenticated", "false");
       navigate('/')
     }
+   } catch (error) {
+    console.log(error)
+   }
   };
 
   const handleOpen = () => {
