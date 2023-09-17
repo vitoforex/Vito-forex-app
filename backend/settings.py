@@ -158,7 +158,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # media
 MEDIA_URL = "/media/"  # media url
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media/images")  # were media files are located
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # were media files are located
 
 REDIRECT_URL = "localhost:3000"
 

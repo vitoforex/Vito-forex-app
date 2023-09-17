@@ -58,13 +58,17 @@ def payment_successful(request):
         customer = stripe.Customer.retrieve(session.customer)
         
         # Assuming you have a UserPayments model and want to associate it with the session
-        """
+        
         user_id = request.user.id
+        print(request.user)
         print(f'user id: {request.user.id}')
+        
         user_payment = UserPayments.objects.get(user=user_id)
         user_payment.stripe_checkout_id = checkout_session_id
+        user_payment.payment_bool = True
         user_payment.save()
-        """
+        
+        
         
         return render(request, 'payments/success.html') # Render your success template
     except RuntimeError as e:

@@ -27,10 +27,11 @@ urlpatterns = [
     path("payment/", include("PaymentsApp.urls")),
     path("courses_api/", include("CoursesApp.urls")),
     path("blog_api/", include("BlogApp.urls")),
-    re_path(r"^$", TemplateView.as_view(template_name='index.html')),
-    re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name='index.html')),
     
 ] 
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += re_path(r"^$", TemplateView.as_view(template_name='index.html')),
+urlpatterns += re_path(r"^(?:.*)/?$", TemplateView.as_view(template_name='index.html')),
