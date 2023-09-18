@@ -12,6 +12,7 @@ export {default as Testimonials} from './Testimonials/Testimonials';
 export {default as TestimonialCard} from './Cards/TestimonialCard';
 export {default as EventCard} from './Cards/EventCard';
 export {default as BlogPostCard} from './Cards/BlogPostCard';
+export {default as SignalCard } from '../components/Cards/SiganlCard';
 export {default as Gallery} from './Gallery/Gallery';
 export {default as Signals } from '../components/Dashboard/Signals';
 export {default as  CalculatedRisk } from '../components/Dashboard/CalculatedRisk';
