@@ -21,10 +21,13 @@ import { Navbar, Footer } from "./components";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { updateUserIsLoggedIn } from "./features/authSlice";
+import { useDispatch } from "react-redux";
 
 
 
 function App() {
+  const dispatch = useDispatch();
   useEffect(()=>{
      async function getIsUserLoggedInStatus(){
       try {
@@ -32,8 +35,10 @@ function App() {
        console.log(response)
        if (response.data.authenticated === false){
         localStorage.setItem("isAuthenticated", "false");
+        dispatch(updateUserIsLoggedIn(false))
        }else{
         localStorage.setItem("isAuthenticated", "true");
+        dispatch(updateUserIsLoggedIn(true))
        }
       } catch (error) {
         console.log(error)

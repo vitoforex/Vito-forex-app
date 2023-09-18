@@ -1,0 +1,67 @@
+.daily-setup-content h1{
+  color: #000;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
+.daily-setup-content h2{
+  color: #000;
+  font-weight: bold;
+  font-size: 2.6rem;
+}
+
+.daily-setup-content h3{
+  color: #000;
+  font-weight: bold;
+  font-size: 2.3rem;
+}
+
+.daily-setup-content h4{
+  color: #000;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.daily-setup-content h5{
+  color: #000;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.daily-setup-content h6{
+  color: #000;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.daily-setup-content a{
+  text-decoration: underline;
+  font-weight: 700;
+  color: rgb(23, 23, 120);
+}
+
+.daily-setup-content h1, .daily-setup-content h2, .daily-setup-content h3, .daily-setup-content h4, .daily-setup-content h5,.daily-setup-content h6{
+  padding: .5rem 0;
+}
+
+.daily-setup-content a, .daily-setup-content p, .daily-setup-content div, .daily-setup-content img{
+  padding: 0.4rem 0;
+}
+  
+.daily-setup-content table{
+  padding: 1rem 0;
+}
+
+
+.daily-setup-content tbody tr td{
+  padding: 1rem 0 1rem .4rem;
+}
+
+.daily-setup-content tr:nth-child(odd) {
+  background-color: #f2f2f2; /* Light gray color */
+}
+
+/* Apply white background to even rows */
+.daily-setup-content tr:nth-child(even) {
+  background-color: #ffffff; /* White color */
+}

@@ -19,3 +19,5 @@ export {default as  CalculatedRisk } from '../components/Dashboard/CalculatedRis
 export {default as DailySetups } from '../components/Dashboard/DailySetups';
 export {default as WinRate } from '../components/Dashboard/WinRate';
 export {default as TradeBreakdown } from '../components/Dashboard/TradeBreakdown';
+export {default as WeekDropdown } from '../components/Dropdowns/WeekDropdown';
+

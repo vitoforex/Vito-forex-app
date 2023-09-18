@@ -16,6 +16,8 @@ class Signal(models.Model):
 class DailyStep(models.Model):
     title = models.CharField(max_length=300)
     content = RichTextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title
@@ -24,6 +26,8 @@ class DailyStep(models.Model):
 class TradeBreakdown(models.Model):
     title = models.CharField(max_length=300)
     content = RichTextField()
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_updated = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.title

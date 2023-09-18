@@ -56,7 +56,7 @@ const Dashboard = () => {
         }
        }
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen ">
       <nav className="py-2 px-4 bg-black">
         <div className="flex flex-row items-center justify-between">
           <div className="flex flex-row items-center">
@@ -93,7 +93,7 @@ const Dashboard = () => {
 
       <main className="flex-grow bg-[#ddd]">
         <div className="flex ">
-          <div className="bg-black h-[90vh]  w-44 border-t-2 border-white border-b-2">
+          <div className="bg-black h-[90vh]  w-44 border-t-2 border-white border-b-2 scrollable">
             <div className="flex flex-col">
               <GenericButton
                 text={"Siganals"}
@@ -117,7 +117,7 @@ const Dashboard = () => {
               />
             </div>
           </div>
-          <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto">
+          <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto scrollable">
                 {activeTab===0 && <Signals/>}
                 {activeTab===1 && <TradeBreakdown/>}
                 {activeTab===2 && <DailySetups/>}
