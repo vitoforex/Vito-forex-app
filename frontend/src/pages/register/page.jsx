@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GenericButton } from "../../components";
+import { ToastContainer, toast } from "react-toastify";
 
 const Page = () => {
   const [email, setEmail] = useState("");
@@ -35,17 +36,42 @@ const Page = () => {
       first_name: firstName,
       last_name: lastName,
     };
-    console.log(data);
-    let response = await axios.post(
-      "http://127.0.0.1:8000/auth/register",
-      JSON.stringify(data),
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }
-    );
-    console.log(response);
+    try {
+      
+      let response = await axios.post(
+        "/auth/register",
+        JSON.stringify(data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      console.log(response);
+      toast("Registered You Successfully! You can login.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
+      return navigate("/login");
+    } catch (error) {
+      toast("Error happened while Registering you! Try again.", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      
+    }
   }
 
   return (
