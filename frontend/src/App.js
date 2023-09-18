@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import {
@@ -22,8 +23,24 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
+
 function App() {
-  console.log(process.env)
+  useEffect(()=>{
+     async function getIsUserLoggedInStatus(){
+      try {
+       const response = await axios.get('/auth/user_status');
+       console.log(response)
+       if (response.data.authenticated === false){
+        localStorage.setItem("isAuthenticated", "false");
+       }else{
+        localStorage.setItem("isAuthenticated", "true");
+       }
+      } catch (error) {
+        console.log(error)
+      }
+     }
+     getIsUserLoggedInStatus();
+  })
   return (
     <main className="App ">
      <ToastContainer />

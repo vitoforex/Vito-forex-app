@@ -27,6 +27,7 @@ urlpatterns = [
     path("payment/", include("PaymentsApp.urls")),
     path("courses_api/", include("CoursesApp.urls")),
     path("blog_api/", include("BlogApp.urls")),
+    path("forex-api/", include("ForexContentApp.urls")),
     
 ] 
 
