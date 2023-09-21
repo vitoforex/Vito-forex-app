@@ -9,8 +9,8 @@ def register(request):
     if request.method == 'POST':
         data = json.loads(request.body)
         email = data.get('email')
-        first_name = data.get('first_name')
-        last_name = data.get('last_name')
+        first_name = data.get('firstName')
+        last_name = data.get('lastName')
         username = data.get('username')
         password = data.get('password')
         # Add other fields as needed
