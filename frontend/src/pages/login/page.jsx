@@ -61,7 +61,7 @@ const Page = () => {
     setPassword(e.target.value);
   }
 
-  async function onSubmitHandler(e) {
+  async function onSubmitHandler(form_data) {
     //e.preventDefault();
     const data = {
       email,
@@ -69,7 +69,7 @@ const Page = () => {
     };
 
     try {
-      let response = await axios.post("/auth/login", JSON.stringify(data), {
+      let response = await axios.post("/auth/login", JSON.stringify(form_data), {
         headers: {
           "Content-Type": "application/json",
         },

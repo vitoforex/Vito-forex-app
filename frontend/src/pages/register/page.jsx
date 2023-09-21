@@ -85,7 +85,9 @@ const Page = () => {
   function passwordHandler(e) {
     setPassword(e.target.value);
   }
-  async function onSubmitHandler(e) {
+  async function onSubmitHandler(form_data) {
+   console.log(form_data)
+  
     let data = {
       email,
       password,
@@ -93,8 +95,9 @@ const Page = () => {
       first_name: firstName,
       last_name: lastName,
     };
+    console.log(data)
     try {
-      let response = await axios.post("/auth/register", JSON.stringify(data), {
+      let response = await axios.post("/auth/register", JSON.stringify(form_data), {
         headers: {
           "Content-Type": "application/json",
         },
@@ -141,8 +144,8 @@ const Page = () => {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                   Create an account
                 </h1>
-                <form
-                  onSubmit={handleSubmit(onSubmitHandler)}
+                <div
+                 
                   className="space-y-4 md:space-y-6"
                 >
                   <div>
@@ -317,7 +320,7 @@ const Page = () => {
                     </div>
                   </div>
                   <GenericButton
-                    type={"submit"}
+                    onClick={handleSubmit(onSubmitHandler)}
                     text={"Create an account"}
                     classes="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   />
@@ -332,7 +335,7 @@ const Page = () => {
                       Login here
                     </a>
                   </p>
-                </form>
+                </div>
               </div>
             </div>
           </div>
