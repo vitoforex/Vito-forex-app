@@ -3,8 +3,31 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GenericButton } from "../../components";
 import { ToastContainer, toast } from "react-toastify";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+const schema = yup.object().shape({
+  email: yup.string().email().required("Email is mendatory"),
+  firstName: yup.string().min(2).max(20).required("First name is mendatory"),
+  lastName: yup.string().min(2).max(20).required("Last name is mendatory"),
+  username: yup.string().min(2).max(30).required("Username is mendatory"),
+  password: yup.string().min(8).max(32).required("Password is mendatory"),
+  confirmPwd: yup
+    .string()
+    .required("Password is mendatory")
+    .oneOf([yup.ref("password")], "Passwords does not match"),
+});
 
 const Page = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -28,7 +51,6 @@ const Page = () => {
     setPassword(e.target.value);
   }
   async function onSubmitHandler(e) {
-    e.preventDefault();
     let data = {
       email,
       password,
@@ -37,16 +59,11 @@ const Page = () => {
       last_name: lastName,
     };
     try {
-      
-      let response = await axios.post(
-        "/auth/register",
-        JSON.stringify(data),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      let response = await axios.post("/auth/register", JSON.stringify(data), {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
       console.log(response);
       toast("Registered You Successfully! You can login.", {
         position: "top-right",
@@ -70,7 +87,6 @@ const Page = () => {
         progress: undefined,
         theme: "dark",
       });
-      
     }
   }
 
@@ -90,7 +106,10 @@ const Page = () => {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                   Create an account
                 </h1>
-                <form className="space-y-4 md:space-y-6">
+                <form
+                  onSubmit={handleSubmit(onSubmitHandler)}
+                  className="space-y-4 md:space-y-6"
+                >
                   <div>
                     <label
                       for="email"
@@ -106,7 +125,11 @@ const Page = () => {
                       placeholder="name@company.com"
                       required=""
                       onChange={emailHandler}
+                      {...register("email")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.email?.message}
+                    </p>
                   </div>
                   <div>
                     <label
@@ -123,7 +146,11 @@ const Page = () => {
                       placeholder="John"
                       required=""
                       onChange={firstNameHandler}
+                      {...register("firstName")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.firstName?.message}
+                    </p>
                   </div>
                   <div>
                     <label
@@ -140,7 +167,11 @@ const Page = () => {
                       placeholder="Doe"
                       required=""
                       onChange={lastNameHandler}
+                      {...register("lastName")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.lastName?.message}
+                    </p>
                   </div>
                   <div>
                     <label
@@ -157,7 +188,11 @@ const Page = () => {
                       placeholder="Doe"
                       required=""
                       onChange={userNameHandler}
+                      {...register("username")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.username?.message}
+                    </p>
                   </div>
                   <div>
                     <label
@@ -174,7 +209,11 @@ const Page = () => {
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                       required=""
                       onChange={passwordHandler}
+                      {...register("password")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.password?.message}
+                    </p>
                   </div>
                   <div>
                     <label
@@ -190,7 +229,11 @@ const Page = () => {
                       placeholder="••••••••"
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                       required=""
+                      {...register("confirmPwd")}
                     />
+                    <p className="text-red-600 text-[13px]">
+                      {errors.confirmPwd?.message}
+                    </p>
                   </div>
                   <div className="flex items-start">
                     <div className="flex items-center h-5">
@@ -218,18 +261,17 @@ const Page = () => {
                     </div>
                   </div>
                   <GenericButton
-                    onClick={onSubmitHandler}
-                    text={'Create an account'}
+                    type={"submit"}
+                    text={"Create an account"}
                     classes="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
                   />
-                    
-                  
+
                   <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                     Already have an account?{" "}
                     <a
                       to="#"
                       className="font-medium text-primary-600 hover:underline dark:text-primary-500"
-                      onClick={()=>navigate('/login')}
+                      onClick={() => navigate("/login")}
                     >
                       Login here
                     </a>

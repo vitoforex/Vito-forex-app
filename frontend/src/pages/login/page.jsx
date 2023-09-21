@@ -9,13 +9,12 @@ import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
-import * as yup from "yup"
+import * as yup from "yup";
 
-const schema = yup
-  .object({
-    email: yup.string().required().email(),
-    password: yup.required().min(5),
-  }).required()
+const schema = yup.object().shape({
+  email: yup.string().email().required(),
+  password: yup.string().min(8).max(32).required(),
+});
 
 const Page = () => {
   const {
@@ -42,7 +41,7 @@ const Page = () => {
   }
 
   async function onSubmitHandler(e) {
-    e.preventDefault();
+    //e.preventDefault();
     const data = {
       email,
       password,
@@ -105,7 +104,7 @@ const Page = () => {
               <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                 Sign in to your account
               </h1>
-              <div className="space-y-4 md:space-y-6">
+              <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-4 md:space-y-6">
                 <div>
                   <label
                     for="email"
@@ -123,6 +122,7 @@ const Page = () => {
                     required=""
                     {...register("email")}
                   />
+                  <p className="text-red-600 text-[13px]">{errors.email?.message}</p>
                 </div>
                 <div>
                   <label
@@ -141,6 +141,7 @@ const Page = () => {
                     required=""
                     {...register("password")}
                   />
+                  <p className="text-red-600 text-[13px]">{errors.password?.message}</p>
                 </div>
                 <div className="flex items-center justify-between">
                   <a
@@ -151,7 +152,7 @@ const Page = () => {
                   </a>
                 </div>
                 <GenericButton
-                  onClick={onSubmitHandler}
+                  type={'submit'}
                   text={"Sign in"}
                   classes="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                 />
@@ -166,7 +167,7 @@ const Page = () => {
                     Sign up
                   </a>
                 </p>
-              </div>
+              </form>
             </div>
           </div>
         </div>
