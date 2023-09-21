@@ -7,8 +7,25 @@ import { useNavigate } from "react-router-dom";
 import { GenericButton } from "../../components";
 import Cookies from "js-cookie";
 import { ToastContainer, toast } from "react-toastify";
+import { useForm } from "react-hook-form"
+import { yupResolver } from "@hookform/resolvers/yup"
+import * as yup from "yup"
+
+const schema = yup
+  .object({
+    email: yup.string().required().email(),
+    password: yup.required().min(5),
+  }).required()
 
 const Page = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  })
+
   const token = Cookies.get("csrftoken");
 
   const dispatch = useDispatch();
@@ -104,6 +121,7 @@ const Page = () => {
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                     placeholder="name@company.com"
                     required=""
+                    {...register("email")}
                   />
                 </div>
                 <div>
@@ -121,6 +139,7 @@ const Page = () => {
                     placeholder="••••••••"
                     className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
                     required=""
+                    {...register("password")}
                   />
                 </div>
                 <div className="flex items-center justify-between">
