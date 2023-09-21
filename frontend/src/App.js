@@ -23,6 +23,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { updateUserIsLoggedIn } from "./features/authSlice";
 import { useDispatch } from "react-redux";
+import '@fortawesome/fontawesome-svg-core/styles.css'
 
 
 

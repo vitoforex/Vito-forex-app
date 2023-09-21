@@ -3,19 +3,41 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { GenericButton } from "../../components";
 import { ToastContainer, toast } from "react-toastify";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
+
 const schema = yup.object().shape({
-  email: yup.string().email().required("Email is mendatory"),
-  firstName: yup.string().min(2).max(20).required("First name is mendatory"),
-  lastName: yup.string().min(2).max(20).required("Last name is mendatory"),
-  username: yup.string().min(2).max(30).required("Username is mendatory"),
-  password: yup.string().min(8).max(32).required("Password is mendatory"),
+  email: yup
+    .string()
+    .email()
+    .required("Please provide your email address. It is mandatory."),
+  firstName: yup
+    .string()
+    .min(2, "Please enter a first name with at least 2 characters.")
+    .max(20)
+    .required("Please provide your first name. It is mandatory."),
+  lastName: yup
+    .string()
+    .min(2, "Please enter a last name with at least 2 characters.")
+    .max(20)
+    .required("Please provide your last name. It is mandatory."),
+  username: yup
+    .string()
+    .min(2, "Please enter a user name with at least 2 characters.")
+    .max(30)
+    .required("Please provide your user name. It is mandatory."),
+  password: yup
+    .string()
+    .min(6, "Please enter a password with at least 6 characters.")
+    .max(200)
+    .required("Please provide your password. It is mandatory."),
   confirmPwd: yup
     .string()
-    .required("Password is mendatory")
+    .required("Please retype your password")
     .oneOf([yup.ref("password")], "Passwords does not match"),
 });
 
@@ -28,11 +50,24 @@ const Page = () => {
     resolver: yupResolver(schema),
   });
 
+  const [passwordTypeField, setPasswordTypeField] = useState('password')
+
+  function handlePasswordVisibleToggle(){
+    if (passwordTypeField==='password'){
+      setPasswordVisibleIcon(faEye);
+      setPasswordTypeField('text')
+   } else {
+      setPasswordVisibleIcon(faEyeSlash)
+      setPasswordTypeField('password')
+   }
+  }
+
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordVisibleIcon, setPasswordVisibleIcon] = useState(faEyeSlash)
   const navigate = useNavigate();
 
   function emailHandler(e) {
@@ -201,19 +236,29 @@ const Page = () => {
                     >
                       Password
                     </label>
+                    <div className="">
+                    <div className="relative">
                     <input
-                      type="password"
+                      onChange={passwordHandler}
+                      type={passwordTypeField}
                       name="password"
                       id="password"
                       placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
                       required=""
-                      onChange={passwordHandler}
                       {...register("password")}
                     />
-                    <p className="text-red-600 text-[13px]">
-                      {errors.password?.message}
-                    </p>
+                    <span
+                      class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
+                      onClick={handlePasswordVisibleToggle}
+                    >
+                     {passwordTypeField==='password' ? <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEyeSlash} size="1x"  />: <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEye} size="1x"  />}
+                    </span>
+                  </div>
+                      <p className="text-red-600 text-[13px]">
+                        {errors.password?.message}
+                      </p>
+                    </div>
                   </div>
                   <div>
                     <label
@@ -222,8 +267,10 @@ const Page = () => {
                     >
                       Confirm password
                     </label>
+
+                    <div className="relative">
                     <input
-                      type="confirm-password"
+                      type={passwordTypeField}
                       name="confirm-password"
                       id="confirm-password"
                       placeholder="••••••••"
@@ -231,6 +278,15 @@ const Page = () => {
                       required=""
                       {...register("confirmPwd")}
                     />
+                    <span
+                      class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
+                      onClick={handlePasswordVisibleToggle}
+                    >
+                     {passwordTypeField==='password' ? <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEyeSlash} size="1x"  />: <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEye} size="1x"  />}
+                    </span>
+                  </div>
+                    
+                   
                     <p className="text-red-600 text-[13px]">
                       {errors.confirmPwd?.message}
                     </p>
