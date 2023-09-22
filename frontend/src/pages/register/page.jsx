@@ -9,7 +9,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-
 const schema = yup.object().shape({
   email: yup
     .string()
@@ -32,9 +31,13 @@ const schema = yup.object().shape({
     .required("Please provide your user name. It is mandatory."),
   password: yup
     .string()
-    .min(6, "Please enter a password with at least 6 characters.")
+    .min(8, "Please enter a password with at least 8 characters.")
     .max(200)
-    .required("Please provide your password. It is mandatory."),
+    .required("Please provide your password. It is mandatory.")
+    .matches(
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+      "Password must conatin atleat one uppercase, one lowercase, one number and one special case character (*,#,@)"
+    ),
   confirmPwd: yup
     .string()
     .required("Please retype your password")
@@ -50,16 +53,16 @@ const Page = () => {
     resolver: yupResolver(schema),
   });
 
-  const [passwordTypeField, setPasswordTypeField] = useState('password')
+  const [passwordTypeField, setPasswordTypeField] = useState("password");
 
-  function handlePasswordVisibleToggle(){
-    if (passwordTypeField==='password'){
+  function handlePasswordVisibleToggle() {
+    if (passwordTypeField === "password") {
       setPasswordVisibleIcon(faEye);
-      setPasswordTypeField('text')
-   } else {
-      setPasswordVisibleIcon(faEyeSlash)
-      setPasswordTypeField('password')
-   }
+      setPasswordTypeField("text");
+    } else {
+      setPasswordVisibleIcon(faEyeSlash);
+      setPasswordTypeField("password");
+    }
   }
 
   const [email, setEmail] = useState("");
@@ -67,7 +70,7 @@ const Page = () => {
   const [lastName, setLastName] = useState("");
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
-  const [passwordVisibleIcon, setPasswordVisibleIcon] = useState(faEyeSlash)
+  const [passwordVisibleIcon, setPasswordVisibleIcon] = useState(faEyeSlash);
   const navigate = useNavigate();
 
   function emailHandler(e) {
@@ -86,8 +89,8 @@ const Page = () => {
     setPassword(e.target.value);
   }
   async function onSubmitHandler(form_data) {
-   console.log(form_data)
-  
+    console.log(form_data);
+
     let data = {
       email,
       password,
@@ -95,13 +98,17 @@ const Page = () => {
       first_name: firstName,
       last_name: lastName,
     };
-    console.log(data)
+    console.log(data);
     try {
-      let response = await axios.post("/auth/register", JSON.stringify(form_data), {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
+      let response = await axios.post(
+        "/auth/register",
+        JSON.stringify(form_data),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       console.log(response);
       toast("Registered You Successfully! You can login.", {
         position: "top-right",
@@ -144,10 +151,7 @@ const Page = () => {
                 <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl ">
                   Create an account
                 </h1>
-                <div
-                 
-                  className="space-y-4 md:space-y-6"
-                >
+                <div className="space-y-4 md:space-y-6">
                   <div>
                     <label
                       for="email"
@@ -240,24 +244,36 @@ const Page = () => {
                       Password
                     </label>
                     <div className="">
-                    <div className="relative">
-                    <input
-                      onChange={passwordHandler}
-                      type={passwordTypeField}
-                      name="password"
-                      id="password"
-                      placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
-                      required=""
-                      {...register("password")}
-                    />
-                    <span
-                      class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
-                      onClick={handlePasswordVisibleToggle}
-                    >
-                     {passwordTypeField==='password' ? <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEyeSlash} size="1x"  />: <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEye} size="1x"  />}
-                    </span>
-                  </div>
+                      <div className="relative">
+                        <input
+                          onChange={passwordHandler}
+                          type={passwordTypeField}
+                          name="password"
+                          id="password"
+                          placeholder="••••••••"
+                          className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5  "
+                          required=""
+                          {...register("password")}
+                        />
+                        <span
+                          class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
+                          onClick={handlePasswordVisibleToggle}
+                        >
+                          {passwordTypeField === "password" ? (
+                            <FontAwesomeIcon
+                              class=" h-6 w-6 z-50 text-gray-400"
+                              icon={faEyeSlash}
+                              size="1x"
+                            />
+                          ) : (
+                            <FontAwesomeIcon
+                              class=" h-6 w-6 z-50 text-gray-400"
+                              icon={faEye}
+                              size="1x"
+                            />
+                          )}
+                        </span>
+                      </div>
                       <p className="text-red-600 text-[13px]">
                         {errors.password?.message}
                       </p>
@@ -272,24 +288,35 @@ const Page = () => {
                     </label>
 
                     <div className="relative">
-                    <input
-                      type={passwordTypeField}
-                      name="confirm-password"
-                      id="confirm-password"
-                      placeholder="••••••••"
-                      className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                      required=""
-                      {...register("confirmPwd")}
-                    />
-                    <span
-                      class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
-                      onClick={handlePasswordVisibleToggle}
-                    >
-                     {passwordTypeField==='password' ? <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEyeSlash} size="1x"  />: <FontAwesomeIcon class=" h-6 w-6 z-50 text-gray-400" icon={faEye} size="1x"  />}
-                    </span>
-                  </div>
-                    
-                   
+                      <input
+                        type={passwordTypeField}
+                        name="confirm-password"
+                        id="confirm-password"
+                        placeholder="••••••••"
+                        className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
+                        required=""
+                        {...register("confirmPwd")}
+                      />
+                      <span
+                        class="text-gray-400 flex justify-around items-center cursor-pointer absolute top-4 right-4 z-40 "
+                        onClick={handlePasswordVisibleToggle}
+                      >
+                        {passwordTypeField === "password" ? (
+                          <FontAwesomeIcon
+                            class=" h-6 w-6 z-50 text-gray-400"
+                            icon={faEyeSlash}
+                            size="1x"
+                          />
+                        ) : (
+                          <FontAwesomeIcon
+                            class=" h-6 w-6 z-50 text-gray-400"
+                            icon={faEye}
+                            size="1x"
+                          />
+                        )}
+                      </span>
+                    </div>
+
                     <p className="text-red-600 text-[13px]">
                       {errors.confirmPwd?.message}
                     </p>
