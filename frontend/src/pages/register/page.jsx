@@ -34,13 +34,13 @@ const schema = yup.object().shape({
     .min(8, "Please enter a password with at least 8 characters.")
     .max(200)
     .required("Please provide your password. It is mandatory.")
-    .matches(
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
-      "Password must conatin atleat one uppercase, one lowercase, one number and one special case character (*,#,@)"
-    ),
+    .matches(/[0-9]/, "Password must contain atleat one number!")
+    .matches(/[a-z]/, "Password must contain atleat one lowercase letter!")
+    .matches(/[A-Z]/, "Password must contain atleat one uppercase letter!")
+    .matches(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/, "Password must contain atleat one special character (*,@,#)!"),
   confirmPwd: yup
     .string()
-    .required("Please retype your password")
+    .required("Please confirm your password")
     .oneOf([yup.ref("password")], "Passwords does not match"),
 });
 
