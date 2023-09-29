@@ -1,58 +1,72 @@
-.carousel {
+.swiper {
     width: 100%;
-    height: 90vh;
-    background-color: black;
-}
-
-.carouselInner {
+    height: 80vh;
+  }
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
     height: 100%;
-    width: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+  /*custom*/
+  .slider-container_1{
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('https://cdn.pixabay.com/photo/2021/08/06/00/37/stock-trading-6525081_1280.jpg');
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-}
+    justify-content: center;
+    align-items: center;
+  }
 
-.carouselInner .left {
-    flex: 5%;
+  .slider-container_2{
     height: 100%;
-    
-    display: grid;
-    place-items: center;
-    color: white;
-    cursor: pointer;
-}
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('https://cdn.pixabay.com/photo/2020/11/24/04/13/finance-5771541_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.carouselInner .center {
-    flex: 80%;
+  .slider-container_3{
     height: 100%;
-    display: grid;
-    place-items: center;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: justify;
-    text-align-last: center;
-}
+    background-image: linear-gradient(to right, rgba(0,0,0,0.5), rgba(0,0,0,0.5)),url('https://cdn.pixabay.com/photo/2015/10/09/20/37/meeting-979899_1280.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.heading {
-    font-size: 5rem;
-}
+  .swiper-button-next{
+    color: #fff !important;
+  }
+  .swiper-button-prev{
+    color: #fff !important;
+  }
 
-.para {
-    font-size: 2rem;
-}
-
-.heading, .para {
-    background-color: rgb(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 9px;
-}
-
-.carouselInner .right {
-    flex: 5%;
-    height: 100%;
-  
-    display: grid;
-    place-items: center;
-    color: white;
-    cursor: pointer;
-}
+  .swiper-pagination-bullet{
+    width: 40px !important;
+    height: 40px !important;
+    background-color: #fff !important;
+  }

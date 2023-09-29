@@ -1,7 +1,7 @@
 import React from "react";
 import { formartDate } from "../../utils";
 
-const SiganlCard = ({isNew, sell, sl, tp, risk, date}) => {
+const SiganlCard = ({isNew, buy, sell, sl, tp, risk, date}) => {
   return (
     <div className="card p-4 m-2 rounded-lg shadow-xl w-80 bg-white">
       <div className="flex justify-between">
@@ -16,6 +16,10 @@ const SiganlCard = ({isNew, sell, sl, tp, risk, date}) => {
       <div className="py-4">
         <table>
           <tbody>
+            <tr>
+              <td className="pr-6 font-semibold">BUY</td>
+              <td>: {buy}</td>
+            </tr>
             <tr>
               <td className="pr-6 font-semibold">SELL</td>
               <td>: {sell}</td>

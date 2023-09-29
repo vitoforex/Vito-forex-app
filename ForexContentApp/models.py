@@ -2,6 +2,7 @@ from django.db import models
 from ckeditor.fields import RichTextField
 
 class Signal(models.Model):
+    buy = models.CharField(max_length=30, blank=True, null=True)
     sell = models.CharField(max_length=30)
     sl = models.CharField(max_length=30)
     tp = models.CharField(max_length=30)

@@ -29,6 +29,7 @@ const Signals = () => {
             <div className="" key={idx}>
               <SignalCard
                 isNew={idx}
+                buy={signal.fields.buy}
                 sell={signal.fields.sell}
                 sl={signal.fields.sl}
                 tp={signal.fields.tp}
