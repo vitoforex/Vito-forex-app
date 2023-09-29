@@ -1,3 +1,7 @@
+import time
+import stripe
+import json
+from UserAuthApp.models import CustomUser 
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse, HttpResponseRedirect
 from django_nextjs.render import render_nextjs_page_async
@@ -7,9 +11,6 @@ from .models import UserPayments
 from django_nextjs.render import render_nextjs_page_sync
 from django.contrib.auth.decorators import login_required
 
-import time
-import stripe
-import json
 
 
 @csrf_exempt
@@ -24,11 +25,12 @@ def create_checkout_session(request):
                 {
                     'price': data['price'],
                     'quantity':1,
+            
                 }
             ],
             mode='payment',
             customer_creation='always',
-            success_url="https://joshuab.pythonanywhere.com/payment/success?session_id={CHECKOUT_SESSION_ID}",
+            success_url="http://localhost:8000/payment/success?session_id={CHECKOUT_SESSION_ID}",
             cancel_url="https://joshuab.pythonanywhere.com/cancel",
         )
 
@@ -56,6 +58,14 @@ def payment_successful(request):
     try:
         session = stripe.checkout.Session.retrieve(checkout_session_id)
         customer = stripe.Customer.retrieve(session.customer)
+        line_items = stripe.checkout.Session.list_line_items(session.id, limit=5)
+        user_payment_plan = line_items["data"][0]["description"]
+
+
+        print('--------------print the sub type object-------------')
+        print(user_payment_plan)
+        
+
         
         # Assuming you have a UserPayments model and want to associate it with the session
         
@@ -67,6 +77,11 @@ def payment_successful(request):
         user_payment.stripe_checkout_id = checkout_session_id
         user_payment.payment_bool = True
         user_payment.save()
+        current_user = request.user
+        print('printing the current user---------------------------------')
+        print(current_user)
+        current_user.current_plan = user_payment_plan.lower()
+        current_user.save()
         
         
         

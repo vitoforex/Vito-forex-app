@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React, {useState} from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheckSquare, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { useSelector } from 'react-redux'
@@ -7,16 +6,19 @@ import { useNavigate } from 'react-router-dom'
 import Provider from 'react-redux'
 import { store } from '../../store/store'
 import axios from 'axios'
+import Loader from '../../assets/images/loaders/btn_loader.gif';
 
 const PricingCard = ({price, months, title, features, restricted, save, tag, original_price, priceId}) => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
     const navigate = useNavigate();
+    const [currentText, setCurrentText] = useState('Buy Now')
 
     async function Checkout(){
         console.log('clicking', isLoggedIn)
         if (isLoggedIn === false){
             return navigate('/login');
         }else{
+            setCurrentText(Loader)
             let data = {
                price: priceId,
             }
@@ -61,8 +63,8 @@ const PricingCard = ({price, months, title, features, restricted, save, tag, ori
                 </h2>
             </div>
             <div className="py-4 flex justify-center items-center">
-                <button onClick={Checkout} className="font-bold bg-gradient-to-r from-primary to-secondary text-white py-2 px-8">
-                    Buy Now
+                <button onClick={Checkout} className="font-bold bg-gradient-to-r from-primary to-secondary text-white py-2 px-8 active:scale-80">
+                    {currentText.length<10?currentText:<img src={currentText} alt='loader' height={5} width={25} />}
                 </button>
             </div>
             <div className="h-[1px] w-full bg-gray-400"></div>

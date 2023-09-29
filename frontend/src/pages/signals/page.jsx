@@ -40,7 +40,7 @@ const pricing = [
     tag: "Good for Experts",
     save: "85",
     months: "6",
-    priceId:"price_1NnLT7COWoAHqo4Jee4RuX6q",
+    priceId:"price_1NnLVzCOWoAHqo4JxQvj4wMF",
     features: [
       "Daily Signals",
       "85% win-rateof currecy pairs",
