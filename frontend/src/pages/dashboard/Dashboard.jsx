@@ -143,7 +143,7 @@ const Dashboard = () => {
                   />
                 </>
               )}
-              
+
               <GenericButton
                 text={"Exit"}
                 classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
@@ -152,9 +152,11 @@ const Dashboard = () => {
             </div>
           </div>
           <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto scrollable">
-            {activeTab === 0 && <Signals />}
-            {activeTab === 1 && <TradeBreakdown />}
-            {activeTab === 2 && <DailySetups />}
+            {currentPlan === "no-plan"
+              ? "You currentily have no plan. Please subscribe"
+              : (activeTab === 0 && <Signals />) ||
+                (activeTab === 1 && <TradeBreakdown />) ||
+                (activeTab === 2 && <DailySetups />)}
           </div>
         </div>
       </main>

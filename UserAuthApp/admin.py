@@ -7,6 +7,9 @@ class CustomUserAdmin(UserAdmin):
     list_filter = ('current_plan',)  
 
 
+    # exclude = ('date_joined',)  
+
+
 admin.site.register(models.CustomUser, CustomUserAdmin)
 
 
