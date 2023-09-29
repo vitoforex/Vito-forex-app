@@ -30,7 +30,7 @@ const DailySetups = () => {
           <span className="text-gray-400">Daily Setup:</span>
         </div>
         <div className="">
-          <WeekDropdown currentDayUpdater={setCurrentDay} />
+          <WeekDropdown currentDayUpdater={setCurrentDay} parentComponent={'DailySetups'} dailySetUps={dailySetUps}/>
         </div>
       </div>
       <div className="daily-setups scrollable bg-white p-4 max-h-[90vh] min-h-[90vh] overflow-auto rounded-xl shadow-lg w-[90%]">

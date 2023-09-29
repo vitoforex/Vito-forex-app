@@ -143,21 +143,7 @@ const Dashboard = () => {
                   />
                 </>
               )}
-              <GenericButton
-                text={"Siganals"}
-                classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={() => updateActiveTab(0)}
-              />
-              <GenericButton
-                text={"Trade Breakdown"}
-                classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={() => updateActiveTab(1)}
-              />
-              <GenericButton
-                text={"Daily setups"}
-                classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
-                onClick={() => updateActiveTab(2)}
-              />
+              
               <GenericButton
                 text={"Exit"}
                 classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}

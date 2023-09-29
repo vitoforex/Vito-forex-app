@@ -30,7 +30,7 @@ const TradeBreakdown = () => {
           <span className="text-gray-400">Trade Breakdown:</span>
         </div>
         <div className="">
-          <WeekDropdown currentDayUpdater={setCurrentDay} />
+          <WeekDropdown currentDayUpdater={setCurrentDay} parentComponent={'TradeBreakdown'} tradeBreakDowns={tradeBreakDown}/>
         </div>
       </div>
       <div className="daily-setups scrollable bg-white p-4 max-h-[90vh] min-h-[90vh] overflow-auto rounded-xl shadow-lg w-[90%]">
