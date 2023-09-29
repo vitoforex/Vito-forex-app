@@ -8,7 +8,7 @@ import Provider from 'react-redux'
 import { store } from '../../store/store'
 import axios from 'axios'
 
-const PricingCard = ({price, months, title, features, restricted, save, tag, original_price}) => {
+const PricingCard = ({price, months, title, features, restricted, save, tag, original_price, priceId}) => {
     const isLoggedIn = useSelector(state => state.auth.isLoggedIn)
     const navigate = useNavigate();
 
@@ -18,9 +18,9 @@ const PricingCard = ({price, months, title, features, restricted, save, tag, ori
             return navigate('/login');
         }else{
             let data = {
-               price: 'price_1NnLVzCOWoAHqo4JxQvj4wMF',
+               price: priceId,
             }
-            const response = await axios.post('http://127.0.0.1:8000/payment/checkout', JSON.stringify(data), {
+            const response = await axios.post('/payment/checkout', JSON.stringify(data), {
                 headers:{
                     "Content-Type": "application/json",
                    

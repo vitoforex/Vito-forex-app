@@ -40,7 +40,7 @@ const schema = yup.object().shape({
     .matches(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/, "Password must contain atleat one special character (*,@,#)!"),
   confirmPwd: yup
     .string()
-    .required("Please confirm your password")
+    .required("Please re-type your password")
     .oneOf([yup.ref("password")], "Passwords does not match"),
 });
 

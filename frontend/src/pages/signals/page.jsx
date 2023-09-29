@@ -9,6 +9,7 @@ const pricing = [
     tag: "Good for begineers",
     save: "80",
     months: "1",
+    priceId:"price_1NnLT7COWoAHqo4Jee4RuX6q",
     features: [
       "Daily Signals",
       "85% win-rateof currecy pairs",
@@ -23,6 +24,7 @@ const pricing = [
     tag: "Good for Intermediates",
     save: "78",
     months: "3",
+    priceId:"price_1NnLUhCOWoAHqo4JwvUbYWAR",
     features: [
       "Daily Signals",
       "85% win-rateof currecy pairs",
@@ -38,6 +40,7 @@ const pricing = [
     tag: "Good for Experts",
     save: "85",
     months: "6",
+    priceId:"price_1NnLT7COWoAHqo4Jee4RuX6q",
     features: [
       "Daily Signals",
       "85% win-rateof currecy pairs",
@@ -69,6 +72,7 @@ const page = () => {
                   save={option.save}
                   tag={option.tag}
                   original_price={option.original_price}
+                  priceId={option.priceId}
                 />
               ))}
             </div>
