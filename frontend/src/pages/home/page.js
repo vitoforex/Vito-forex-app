@@ -16,6 +16,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ServiceCard } from "../../components";
 import David from "../../assets/images/david.png";
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const services = [
   {
@@ -104,6 +105,8 @@ export default function Home() {
   return (
     <main className="flex-grow ">
       <HeaderCarousel />
+
+
       <div className="py-20 ">
         <div className="mx-auto md:w-[60%] sm:w-[90%] px-10">
           <h2 className="text-3xl text-center custom-underline font-semibold">
@@ -130,6 +133,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+
       <div className="bg-black py-10 mb-20">
         <h2 className="text-center custom-underline py-10 text-white text-3xl font-semibold">
           Our Services
@@ -147,7 +151,11 @@ export default function Home() {
         </div>
       </div>
 
-      <FAQs />
+      
+
+        <FAQs />
+     
+
 
       <Testimonials />
 

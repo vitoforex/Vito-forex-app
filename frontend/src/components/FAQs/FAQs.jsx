@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const Accordion = () => {
   return (
@@ -7,50 +8,64 @@ const Accordion = () => {
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4">
             <div className="mx-auto mb-[60px] max-w-[520px] text-center lg:mb-20">
-              <span className="mb-2 block text-lg font-semibold text-primary">
-                FAQ
-              </span>
-           
-              <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">Any Questions? Look Here</h1>
+              <ScrollAnimation animateIn="fadeIn">
+                <span className="mb-2 block text-lg font-semibold text-primary">
+                  FAQ
+                </span>
+
+                <h1 class="xl:text-4xl text-3xl text-center text-gray-800 font-extrabold pb-6 sm:w-4/6 w-5/6 mx-auto">
+                  Any Questions? Look Here
+                </h1>
+              </ScrollAnimation>
             </div>
           </div>
         </div>
 
         <div className="-mx-4 flex flex-wrap">
           <div className="w-full px-4 lg:w-1/2">
-            <AccordionItem
-              header="What is Vito Forex and what services do you offer?
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header="What is Vito Forex and what services do you offer?
               "
-              text="Vito Forex is a premier forex trading platform that provides a comprehensive suite of services. We offer access to cutting-edge trading tools, educational resources, and a vibrant community. Our flagship service includes real-time forex signals, guiding traders through the intricate market landscape."
-            />
-            <AccordionItem
-              header=" How can I benefit from Vito Forex's forex signals?
+                text="Vito Forex is a premier forex trading platform that provides a comprehensive suite of services. We offer access to cutting-edge trading tools, educational resources, and a vibrant community. Our flagship service includes real-time forex signals, guiding traders through the intricate market landscape."
+              />
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header=" How can I benefit from Vito Forex's forex signals?
               "
-              text="Our forex signals are meticulously crafted by experienced analysts, offering invaluable insights into currency movements. By following these signals, you can make informed trading decisions, potentially maximizing your profits and minimizing risks."
-            />
-            <AccordionItem
-              header=" Is Vito Forex suitable for both beginners and experienced traders?"
-              text="Absolutely. Vito Forex caters to traders of all levels. Our educational resources provide beginners with a solid foundation, while advanced tools offer seasoned traders the edge they need to succeed."
-            />
+                text="Our forex signals are meticulously crafted by experienced analysts, offering invaluable insights into currency movements. By following these signals, you can make informed trading decisions, potentially maximizing your profits and minimizing risks."
+              />
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header=" Is Vito Forex suitable for beginners?"
+                text="Absolutely. Vito Forex caters to traders of all levels. Our educational resources provide beginners with a solid foundation, while advanced tools offer seasoned traders the edge they need to succeed."
+              />
+            </ScrollAnimation>
           </div>
           <div className="w-full px-4 lg:w-1/2">
-            <AccordionItem
-              header="Are there any community features on Vito Forex?"
-              text="Yes, our platform thrives on community collaboration. Join our forums, engage in discussions, and share insights with fellow traders. The sense of community empowers you to learn, grow, and stay updated on market trends."
-            />
-            <AccordionItem
-              header=" How does Vito Forex ensure the accuracy of its forex signals?"
-              text="We have a dedicated team of expert analysts who utilize sophisticated algorithms and real-time data analysis to create our signals. This rigorous approach ensures that the signals provided are accurate and reliable."
-            />
-            <AccordionItem
-              header="Can I access Vito Forex on mobile devices?"
-              text="Absolutely, we understand the importance of accessibility. Vito Forex offers a mobile-responsive platform that allows you to access our services on your smartphone or tablet, ensuring you stay connected and informed even while on the go."
-            />
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header="Are there any community features on Vito Forex?"
+                text="Yes, our platform thrives on community collaboration. Join our forums, engage in discussions, and share insights with fellow traders. The sense of community empowers you to learn, grow, and stay updated on market trends."
+              />
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header=" How do you ensure accuracy of your forex signals?"
+                text="We have a dedicated team of expert analysts who utilize sophisticated algorithms and real-time data analysis to create our signals. This rigorous approach ensures that the signals provided are accurate and reliable."
+              />
+            </ScrollAnimation>
+            <ScrollAnimation animateIn="fadeIn">
+              <AccordionItem
+                header="Can I access Vito Forex on mobile devices?"
+                text="Absolutely, we understand the importance of accessibility. Vito Forex offers a mobile-responsive platform that allows you to access our services on your smartphone or tablet, ensuring you stay connected and informed even while on the go."
+              />
+            </ScrollAnimation>
           </div>
         </div>
       </div>
-
-    
     </section>
   );
 };
@@ -61,7 +76,6 @@ const AccordionItem = ({ header, text }) => {
   const [active, setActive] = useState(false);
 
   const handleToggle = (event) => {
-    event.preventDefault();
     setActive(!active);
   };
   return (

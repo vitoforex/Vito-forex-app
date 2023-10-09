@@ -1,5 +1,6 @@
 import React from "react";
 import { GenericButton, TestimonialCard } from "..";
+import ScrollAnimation from "react-animate-on-scroll";
 
 const testimonials = [
   {
@@ -44,12 +45,14 @@ const Testimonials = () => {
           </div>
           <div className="">
             {testimonials.map((testimonial, idx) => (
-              <TestimonialCard
-                key={idx}
-                testimonial={testimonial.testimonial}
-                name={testimonial.name}
-                image={testimonial.image}
-              />
+              <ScrollAnimation animateIn="fadeIn" >
+                <TestimonialCard
+                  key={idx}
+                  testimonial={testimonial.testimonial}
+                  name={testimonial.name}
+                  image={testimonial.image}
+                />
+              </ScrollAnimation>
             ))}
           </div>
         </div>
