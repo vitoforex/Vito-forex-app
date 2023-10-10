@@ -11,8 +11,8 @@ def post_list(request):
         {
             "title": post.title,
             "content": post.content,
-            "author": post.author,
-            "author_image": post.author_image_url(),
+            "author": post.author.name,
+            "author_image": post.author.author_image_url(),
             "pub_date": post.pub_date,
             "updated_date": post.updated_date,
             "featured_image": post.featured_image_url(),
@@ -28,8 +28,9 @@ def post_detail(request, pk):
     post_content = {
             "title": post.title,
             "content": post.content,
-            "author": post.author,
-            "author_image": post.author_image_url(),
+            "author": post.author.name,
+            "role":post.author.role,
+            "author_image": post.author.author_image_url(),
             "pub_date": post.pub_date,
             "updated_date": post.updated_date,
             "featured_image": post.featured_image_url(),

@@ -2,11 +2,21 @@ from django.db import models
 from UserAuthApp.models import CustomUser
 from ckeditor.fields import RichTextField
 
+class Author(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='author/',blank=True, null=True)
+    role = models.CharField(max_length=100, blank=True, null=True)
+
+    def author_image_url(self):
+        return self.image.url
+    
+    def __str__(self):
+        return self.name
+
 class BlogPost(models.Model):
     title = models.CharField(max_length=500)
     content = RichTextField()
-    author = models.CharField(max_length=50)
-    author_image = models.ImageField(upload_to='author/',blank=True, null=True)
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
     pub_date = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='blog/', blank=True, null=True)
     updated_date = models.DateTimeField(auto_now=True)
@@ -14,8 +24,6 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
     
-    def author_image_url(self):
-        return self.author_image.url
     
     def featured_image_url(self):
         return self.image.url

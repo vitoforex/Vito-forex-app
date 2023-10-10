@@ -3,7 +3,8 @@ import { faSchool } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import React, {useState, useEffect} from "react";
 import "./styles.css";
-import { Link } from "react-router-dom";;
+import { Link } from "react-router-dom";
+import {Spinner} from '../../components'
 
 
 
@@ -28,7 +29,7 @@ const Page = () => {
         <div className="py-20">
           <div className="flex justify-center items-center">
             <div className="grid gap-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-              {courses===null?'Loading...':courses.map((course, idx) => (
+              {courses===null?<Spinner/>:courses.map((course, idx) => (
                 <Link className="relative" key={idx} to={`/courses/${course.id}`}>
                   <img
                     src={course.image}

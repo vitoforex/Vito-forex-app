@@ -1,5 +1,7 @@
 export {default as Navbar} from './Navbar/Navbar';
 export {default as Footer} from './Footer/Footer';
+export {default as Profile} from './Profile/Profile';
+export {default as ProfileModal} from './Modal/ProfileModal';
 export {default as NavigationMenu} from './Navbar/NavigationMenu';
 export {default as Hamburger} from './Buttons/Hamburger';
 export {default as GenericButton} from './Buttons/GenericButton';
