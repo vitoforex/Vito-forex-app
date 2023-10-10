@@ -19,7 +19,6 @@ const Navbar = () => {
     setCurrentPath(pathname.pathname);
   });
 
-
   useEffect(() => {
     const storedAuthStatus = localStorage.getItem("isAuthenticated");
     if (storedAuthStatus === "true") {
@@ -34,16 +33,16 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   const logoutHandler = async () => {
-   try {
-    const response = await axios.post("/auth/logout");
-    if (response.status === 200) {
-      dispatch(updateUserIsLoggedIn(false));
-      localStorage.setItem("isAuthenticated", "false");
-      navigate('/')
+    try {
+      const response = await axios.post("/auth/logout");
+      if (response.status === 200) {
+        dispatch(updateUserIsLoggedIn(false));
+        localStorage.setItem("isAuthenticated", "false");
+        navigate("/");
+      }
+    } catch (error) {
+      console.log(error);
     }
-   } catch (error) {
-    console.log(error)
-   }
   };
 
   const handleOpen = () => {
@@ -72,115 +71,124 @@ const Navbar = () => {
     }
   }, [windowWidth]);
 
+
+
   return (
     <>
-      {currentPath != "/dashboard" && (
-        <nav className="z-50 bg-black">
-          {/* big screens navigation */}
-          <div className="mx-auto w-[90%] py-4  ">
-            <div className="hidden lg:flex flex-row w-[100%] items-center justify-between ">
-              <div className="">
-                <Link to={"/"}>
-                  <img src={Logo} width={50} height={50} alt="logo" />
-                </Link>
-              </div>
-              <div className="items ">
-                <ul className="flex flex-row items-center justify-between">
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200  font-semibold  hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/about"}
-                    >
-                      About
-                    </Link>
-                  </li>
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/courses"}
-                    >
-                      Courses
-                    </Link>
-                  </li>
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/signals"}
-                    >
-                      Signals
-                    </Link>
-                  </li>
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/contact"}
-                    >
-                      Contact
-                    </Link>
-                  </li>
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/blog"}
-                    >
-                      Blog
-                    </Link>
-                  </li>
-                  <li className="mx-4">
-                    <Link
-                      className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
-                      to={"/mentorship"}
-                    >
-                      Mentorship
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div className="z-10 hidden lg:flex  ">
-                {auth.isLoggedIn==false && (<GenericButton
-                  text={"Login"}
-                  classes={
-                    " font-bold bg-gradient-to-r from-primary to-secondary text-white mx-2"
-                  }
-                  onClick={() => navigate("/login")}
-                />)}
+      {currentPath !== "/dashboard" &&
+        currentPath !== "/login" &&
+        currentPath !== "/register" &&
+        currentPath !== "/dashboardtest" && (
+          <nav className="z-50 bg-black">
+            {/* big screens navigation */}
+            <div className="mx-auto w-[90%] py-4  ">
+              <div className="hidden lg:flex flex-row w-[100%] items-center justify-between ">
+                <div className="">
+                  <Link to={"/"}>
+                    <img src={Logo} width={50} height={50} alt="logo" />
+                  </Link>
+                </div>
+                <div className="items ">
+                  <ul className="flex flex-row items-center justify-between">
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200  font-semibold  hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/about"}
+                      >
+                        About
+                      </Link>
+                    </li>
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/courses"}
+                      >
+                        Courses
+                      </Link>
+                    </li>
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/signals"}
+                      >
+                        Signals
+                      </Link>
+                    </li>
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/contact"}
+                      >
+                        Contact
+                      </Link>
+                    </li>
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/blog"}
+                      >
+                        Blog
+                      </Link>
+                    </li>
+                    <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200 font-semibold hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/mentorship"}
+                      >
+                        Mentorship
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div className="z-10 hidden lg:flex  ">
+                  {auth.isLoggedIn == false && (
+                    <GenericButton
+                      text={"Login"}
+                      classes={
+                        " font-bold bg-gradient-to-r from-primary to-secondary text-white mx-2"
+                      }
+                      onClick={() => navigate("/login")}
+                    />
+                  )}
 
-                {auth.isLoggedIn && (
-                  <GenericButton
-                    text={"Log out"}
-                    onClick={()=>logoutHandler()}
-                    classes={"bg-white text-black ml-2"}
-                  />
-                )}
-                {auth.isLoggedIn && (<GenericButton
-                  text={"Dashboard"}
-                  classes={
-                    " font-bold bg-gradient-to-r from-primary to-secondary text-white ml-2"
-                  }
-                  onClick={() => navigate("/dashboard")}
-                />)}
+                  {auth.isLoggedIn && (
+                    <GenericButton
+                      text={"Log out"}
+                      onClick={() => logoutHandler()}
+                      classes={"bg-white text-black ml-2"}
+                    />
+                  )}
+                  {auth.isLoggedIn && (
+                    <GenericButton
+                      text={"Dashboard"}
+                      classes={
+                        " font-bold bg-gradient-to-r from-primary to-secondary text-white ml-2"
+                      }
+                      onClick={() => navigate("/dashboard")}
+                    />
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* small screens navigation */}
-          <div className="lg:hidden ">
-            <div className=" flex flex-row mx-auto w-[90%] items-center justify-between pb-4">
-              <div className="">
-                <Link to={"/"}>
-                  <img src={Logo} width={50} height={50} alt="logo" />
-                </Link>
-              </div>
-              <div className="flex ">
-                <Hamburger open={open} onClick={() => handleOpen()} />
+            {/* small screens navigation */}
+            <div className="lg:hidden ">
+              <div className=" flex flex-row mx-auto w-[90%] items-center justify-between pb-4">
+                <div className="">
+                  <Link to={"/"}>
+                    <img src={Logo} width={50} height={50} alt="logo" />
+                  </Link>
+                </div>
+                <div className="flex ">
+                  <Hamburger open={open} onClick={() => handleOpen()} />
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* small screens menu */}
-          <NavigationMenu setOpen={setOpen} open={open} />
-        </nav>
-      )}
+            {/* small screens menu */}
+            <NavigationMenu setOpen={setOpen} open={open} />
+          </nav>
+        )}
     </>
   );
 };

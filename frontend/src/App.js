@@ -17,6 +17,7 @@ import {
   Dashboard,
 
 } from "./pages";
+import DashboardTest from './pages/dashboardtest/pages/Dashboard/Dashboard'
 import { Navbar, Footer } from "./components";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
@@ -137,6 +138,12 @@ function App() {
           path="/dashboard"
           element={
             <Dashboard/>
+          }
+        />
+        <Route
+          path="/dashboardtest"
+          element={
+            <DashboardTest/>
           }
         />
         <Route
