@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { WeekDropdown } from "../";
+import { Spinner, WeekDropdown } from "../";
 import axios from "axios";
 import { formartDate } from "../../utils";
 import "./styles.css";
@@ -35,7 +35,7 @@ const TradeBreakdown = () => {
       </div>
       <div className="daily-setups scrollable bg-white p-4 max-h-[90vh] min-h-[90vh] overflow-auto rounded-xl shadow-lg w-[90%]">
         {tradeBreakDown === null ? (
-          "Loading..."
+          <Spinner/>
         ) : currentDay >= tradeBreakDown.length ? (
           "That does not exist"
         ) : (

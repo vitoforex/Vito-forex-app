@@ -8,10 +8,11 @@ import {
   DailySetups,
   WinRate,
   CalculatedRisk,
+  NoPlan,
 } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserTie } from "@fortawesome/free-solid-svg-icons";
+import { faUserTie, faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import axios, { AxiosError } from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { updateUserIsLoggedIn } from "../../features/authSlice";
@@ -46,7 +47,7 @@ const Dashboard = () => {
   }, []);
 
   const logoutHandler = async () => {
-    const response = await axios.post("/auth/logout");
+    const response = await axios.post("http:localhost:8000/auth/logout");
     try {
       if (response.status === 200) {
         dispatch(updateUserIsLoggedIn(false));
@@ -67,7 +68,7 @@ const Dashboard = () => {
             </Link>
             <div className="pl-2 ">
               <Link to={"/"}>
-                <span className="md:text-3xl text-[16px] font-bold text-secondary">
+                <span className="md:text-3xl text-[16px] font-bold text-white">
                   Vito Forex
                 </span>
               </Link>
@@ -75,16 +76,16 @@ const Dashboard = () => {
           </div>
           <div className="flex items-center">
             <div className="mx-2">
-              <FontAwesomeIcon
-                size="2xl"
-                icon={faUserTie}
-                style={{ color: "#ddd" }}
-              />
+              <span className="font-bold underline underline-offset-1 text-[13px] text-white">
+                Welcome {name}! 
+              </span>
             </div>
             <div className="mx-2">
-              <span className="font-bold underline underline-offset-1 text-[13px] text-white">
-                Welcome {name}!
-              </span>
+              <FontAwesomeIcon
+                size="2xl"
+                icon={faUserLarge}
+                style={{ color: "#fff" }}
+              />
             </div>
             <div className="ml-2">
               <GenericButton
@@ -99,7 +100,7 @@ const Dashboard = () => {
 
       <main className="flex-grow bg-[#ddd]">
         <div className="flex ">
-          <div className="bg-black h-[90vh]  w-44 border-t-2 border-white border-b-2 scrollable">
+          <div className="bg-black h-[90vh] hidden  w-44 border-t-2 border-white border-b-2 scrollable">
             <div className="flex flex-col">
               {currentPlan === "basic" && (
                 <GenericButton
@@ -153,7 +154,7 @@ const Dashboard = () => {
           </div>
           <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto scrollable">
             {currentPlan === "no-plan"
-              ? "You currentily have no plan. Please subscribe"
+              ? <NoPlan/>
               : (activeTab === 0 && <Signals />) ||
                 (activeTab === 1 && <TradeBreakdown />) ||
                 (activeTab === 2 && <DailySetups />)}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { SignalCard } from "..";
+import {Spinner} from "..";
 
 const Signals = () => {
   const [signals, setSignals] = useState(null);
@@ -22,7 +23,7 @@ const Signals = () => {
   return (
     <div className="flex items-center justify-center">
       {signals === null ? (
-        "Loading..."
+        <Spinner/>
       ) : (
         <div className="grid lg:grid-cols-3 grid-cols-1">
           {signals.map((signal, idx) => (

@@ -8,6 +8,8 @@ export {default as PersonProfile} from './Cards/PersonProfile';
 export {default as HeaderCarousel} from './Carousel/HeaderCarousel';
 export {default as ServiceCard} from './Cards/ServiceCard.jsx';
 export {default as FAQs} from './FAQs/FAQs';
+export {default as Spinner} from './Loaders/Spinner';
+export {default as NoPlan} from './NoPlan/NoPlan';
 export {default as Testimonials} from './Testimonials/Testimonials';
 export {default as TestimonialCard} from './Cards/TestimonialCard';
 export {default as EventCard} from './Cards/EventCard';
@@ -15,9 +17,7 @@ export {default as BlogPostCard} from './Cards/BlogPostCard';
 export {default as SignalCard } from '../components/Cards/SiganlCard';
 export {default as Gallery} from './Gallery/Gallery';
 export {default as Signals } from '../components/Dashboard/Signals';
-export {default as  CalculatedRisk } from '../components/Dashboard/CalculatedRisk';
 export {default as DailySetups } from '../components/Dashboard/DailySetups';
-export {default as WinRate } from '../components/Dashboard/WinRate';
 export {default as TradeBreakdown } from '../components/Dashboard/TradeBreakdown';
 export {default as WeekDropdown } from '../components/Dropdowns/WeekDropdown';
 
