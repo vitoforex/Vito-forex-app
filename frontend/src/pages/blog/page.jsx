@@ -9,7 +9,7 @@ const Pages = () => {
   useEffect(() => {
     const getBlogPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/blog_api/");
+        const response = await axios.get("/blog_api/");
         setPosts(response.data.posts);
       } catch (error) {
         console.log(error);
