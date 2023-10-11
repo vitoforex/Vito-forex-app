@@ -4,11 +4,14 @@ import { faUserLarge } from "@fortawesome/free-solid-svg-icons";
 import { GenericButton, Spinner } from "..";
 import { useNavigate } from "react-router";
 import axios from "axios";
+import { formartDate } from "../../utils";
 
 const Profile = () => {
   const [fullName, setFullName] = useState(null);
   const [email, setEmail] = useState(null);
   const [currentPlan, setCurrentPlan] = useState(null);
+  const [planStartDate, setPlanStartDate] = useState(null)
+  const [planEndDate, setPlanEndDate] = useState(null)
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,6 +23,8 @@ const Profile = () => {
           setFullName(response.data.username);
           setCurrentPlan(response.data.current_plan);
           setEmail(response.data.email);
+          setPlanStartDate(response.data.plan_start_date)
+          setPlanEndDate(response.data.plan_expiration_date)
         } else {
           navigate("/login");
           // make a toast tell a user their session expired
@@ -62,6 +67,27 @@ const Profile = () => {
                       Current Plan
                     </h2>
                     <p className="capitalize">{currentPlan}</p>
+
+                    <div className="py-6 text-center">
+                      <div className="py-2">
+                        <span className="font-bold underline text-lg">
+                          Start date 
+                        </span>
+                        <span className="px-2">:</span>
+                        <span className=" text-base">
+                          {formartDate(planStartDate)}
+                        </span>
+                      </div>
+                      <div className="py-2">
+                        <span className="font-bold underline text-lg">
+                          End date 
+                        </span>
+                        <span className="px-2">:</span>
+                        <span className=" text-base">
+                          {formartDate(planEndDate)}
+                        </span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

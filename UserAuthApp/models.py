@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
+from django.utils import timezone
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -30,10 +31,9 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     ]
     current_plan = models.CharField(max_length=10, choices=CURRENT_PLAN_CHOICES, default='no-plan')
 
-    """
-    start_date = models.DateTimeField()
-    expiration_date = models.DateTimeField()
-    """
+    plan_start_date = models.DateTimeField(null=True, blank=True)
+    plan_expiration_date = models.DateTimeField(null=True, blank=True)
+    
 
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -58,3 +58,17 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     def __str__(self):
         return self.email
+    
+    def set_plan_expiration(self, plan):
+        print(f"I'm setting the expiration date for: {plan}" )
+        if plan == 'basic':
+            self.plan_expiration_date = self.plan_start_date + timezone.timedelta(days=30)
+        elif plan == 'standard':
+            self.plan_expiration_date = self.plan_start_date + timezone.timedelta(days=90)
+        elif plan == 'premium':
+            self.plan_expiration_date = self.plan_start_date + timezone.timedelta(days=180)
+        else:
+            self.plan_expiration_date = None  # Handle 'no-plan'
+
+        self.save()
+

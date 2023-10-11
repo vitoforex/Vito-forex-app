@@ -64,6 +64,8 @@ def get_user_status(request):
             'email': request.user.email,
             'first_name': request.user.first_name,
             'current_plan':request.user.current_plan,
+            'plan_start_date':request.user.plan_start_date,
+            'plan_expiration_date':request.user.plan_expiration_date,
         }
         return JsonResponse(user_data)
     else:

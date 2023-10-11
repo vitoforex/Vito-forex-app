@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "CoursesApp",
     "BlogApp",
     "ForexContentApp",
+    'background_task',
 ]
 
 MIDDLEWARE = [

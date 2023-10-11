@@ -10,7 +10,7 @@ from django.views.decorators.csrf import csrf_exempt
 from .models import UserPayments
 from django_nextjs.render import render_nextjs_page_sync
 from django.contrib.auth.decorators import login_required
-
+from django.utils import timezone
 
 
 @csrf_exempt
@@ -61,28 +61,19 @@ def payment_successful(request):
         session = stripe.checkout.Session.retrieve(checkout_session_id)
         customer = stripe.Customer.retrieve(session.customer)
         line_items = stripe.checkout.Session.list_line_items(session.id, limit=5)
-        user_payment_plan = line_items["data"][0]["description"]
-
-
-        print('--------------print the sub type object-------------')
-        print(user_payment_plan)
-        
-
-        
+        user_payment_plan = line_items["data"][0]["description"] 
         # Assuming you have a UserPayments model and want to associate it with the session
-        
         user_id = request.user.id
-        print(request.user)
-        print(f'user id: {request.user.id}')
-        
+        print(request.user) #TODO: handle the case where user is AnoymousUser - it breaks the code
+        print(f'user id: {request.user}')
         user_payment = UserPayments.objects.get(user=user_id)
         user_payment.stripe_checkout_id = checkout_session_id
         user_payment.payment_bool = True
         user_payment.save()
         current_user = request.user
-        print('printing the current user---------------------------------')
-        print(current_user)
         current_user.current_plan = user_payment_plan.lower()
+        current_user.plan_start_date = timezone.now()
+        current_user.set_plan_expiration(user_payment_plan.lower())
         current_user.save()
         
         
