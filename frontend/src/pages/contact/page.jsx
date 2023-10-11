@@ -9,10 +9,10 @@ const page = () => {
 <div className="container mb-24 mx-auto md:px-6">
   
   <section className="mb-32">
-    <div className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://mdbcdn.b-cdn.net/img/new/textures/full/284.jpg')]"></div>
+    <div className="relative h-[300px] overflow-hidden bg-cover bg-[50%] bg-no-repeat bg-[url('https://cdn.pixabay.com/photo/2023/05/27/19/15/call-center-8022155_1280.jpg')]"></div>
     <div className="container px-6 md:px-12">
       <div
-        className="block rounded-lg bg-[hsla(0,0%,100%,0.8)] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
+        className="block rounded-lg bg-gray-600 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
         <div className="flex flex-wrap">
           <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
           <form action="#" class="space-y-8">
@@ -68,12 +68,12 @@ const page = () => {
             />
           </form>
           </div>
-          <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12">
+          <div className="w-full shrink-0 grow-0 basis-auto lg:w-7/12 text-white">
             <div className="flex flex-wrap">
               <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:w-6/12">
                 <div className="flex items-start">
                   <div className="shrink-0">
-                    <div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+                    <div className="inline-block rounded-md bg-primary-100 p-4 text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" className="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -85,10 +85,10 @@ const page = () => {
                     <p className="mb-2 font-bold dark:text-white">
                       Technical support
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       support@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       +1 234-567-89
                     </p>
                   </div>
@@ -97,7 +97,7 @@ const page = () => {
               <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:w-6/12">
                 <div className="flex items-start">
                   <div className="shrink-0">
-                    <div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+                    <div className="inline-block rounded-md bg-primary-100 p-4 text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" className="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -109,10 +109,10 @@ const page = () => {
                     <p className="mb-2 font-bold dark:text-white">
                       Sales questions
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       sales@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       +1 234-567-89
                     </p>
                   </div>
@@ -122,7 +122,7 @@ const page = () => {
                 className="mb-12 w-full shrink-0 grow-0 basis-auto md:mb-0 md:w-6/12 md:px-3 lg:mb-12 lg:w-full lg:px-6 xl:w-6/12">
                 <div className="align-start flex">
                   <div className="shrink-0">
-                    <div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+                    <div className="inline-block rounded-md bg-primary-100 p-4 text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" className="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -132,10 +132,10 @@ const page = () => {
                   </div>
                   <div className="ml-6 grow">
                     <p className="mb-2 font-bold dark:text-white">Press</p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       press@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       +1 234-567-89
                     </p>
                   </div>
@@ -144,7 +144,7 @@ const page = () => {
               <div className="w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:w-full lg:px-6 xl:mb-12 xl:w-6/12">
                 <div className="align-start flex">
                   <div className="shrink-0">
-                    <div className="inline-block rounded-md bg-primary-100 p-4 text-primary">
+                    <div className="inline-block rounded-md bg-primary-100 p-4 text-white">
                       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
                         stroke="currentColor" className="h-6 w-6">
                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -154,10 +154,10 @@ const page = () => {
                   </div>
                   <div className="ml-6 grow">
                     <p className="mb-2 font-bold dark:text-white">Bug report</p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       bugs@example.com
                     </p>
-                    <p className="text-neutral-500 dark:text-neutral-200">
+                    <p className="text-neutral-200 ">
                       +1 234-567-89
                     </p>
                   </div>

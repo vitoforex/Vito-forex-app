@@ -37,7 +37,7 @@ const Pages = () => {
                     src={posts[0].featured_image}
                     alt="computer"
                   />
-                  <div className="py-4 px-8 w-full flex justify-between bg-indigo-700">
+                  <div className="py-4 px-8 w-full flex justify-between bg-primary">
                     <p className="text-sm text-white font-semibold tracking-wide">
                       {posts[0].author}
                     </p>
@@ -99,7 +99,7 @@ const Pages = () => {
                                 src={post.featured_image}
                                 alt="games"
                               />
-                              <div className="py-2 px-4 w-full flex justify-between bg-indigo-700">
+                              <div className="py-2 px-4 w-full flex justify-between bg-primary">
                                 <p className="text-sm text-white font-semibold tracking-wide">
                                   {post.author}
                                 </p>

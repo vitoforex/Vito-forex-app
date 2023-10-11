@@ -106,9 +106,11 @@ export default function Home() {
       <HeaderCarousel />
       <div className="py-20 ">
         <div className="mx-auto md:w-[60%] sm:w-[90%] px-10">
+        <div className="text-center">
           <h2 className="text-3xl text-center custom-underline font-semibold">
             What Is Vito Forex
           </h2>
+        </div>
           <p className="text-center py-8">
             Vito Forex embodies a dynamic and visionary approach to forex
             trading services, setting a new standard for traders worldwide. Our
@@ -131,9 +133,12 @@ export default function Home() {
         </div>
       </div>
       <div className="bg-black py-10 mb-20">
+      <div className="text-center">
+
         <h2 className="text-center custom-underline py-10 text-white text-3xl font-semibold">
           Our Services
         </h2>
+      </div>
         <div className="mx-auto w-[95%] flex justify-center items-center">
           <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10">
             {services.map((service, idx) => (
@@ -153,9 +158,11 @@ export default function Home() {
 
       <div className="my-10">
         <div className="mx-auto w-[80%]">
+        <div className="text-center">
           <h2 className="text-center text-3xl font-semibold custom-underline">
             Upcoming Events
           </h2>
+        </div>
           <div className="flex flex-col justify-center items-center py-6">
             {events.map((event, idx) => (
               <EventCard
@@ -172,9 +179,11 @@ export default function Home() {
 
       <div className="my-10 py-10 bg-black">
         <div className="mx-auto w-[80%]">
+        <div className="text-center">
           <h2 className="text-3xl font-semibold text-center text-white custom-underline">
             Latest Articles
           </h2>
+        </div>
           <div className="flex justify-center items-center py-10">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
               {posts.map((post, idx) => (
@@ -196,9 +205,11 @@ export default function Home() {
 
       <section class="bg-white ">
         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <div className="text-center">
           <h2 class="custom-underline mb-4 text-4xl tracking-tight font-extrabold text-center text-black">
             Contact Us
           </h2>
+        </div>
           <p class="mb-8 lg:mb-16 font-light text-center text-gray-500  sm:text-xl">
             Got a technical issue? Want to send feedback about a beta feature?
             Need details about our Business plan? Let us know.

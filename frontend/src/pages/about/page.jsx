@@ -6,13 +6,16 @@ const page = () => {
     <main className="flex-grow">
       <header className="about-header relative">
         <div className="flex justify-center items-center h-[100%] w-full">
-          <h1 className="text-5xl text-white font-bold ">About</h1>
+          <h1 className="text-5xl text-white font-bold ">Our Story</h1>
         </div>
       </header>
       <div className="py-20 mx-auto w-[80%]">
+      <div className="text-center">
+
         <h2 className="text-center text-3xl capitalize custom-underline font-semibold">
-          My Story
+          About
         </h2>
+      </div>
         <div className="flex justify-centers items-center">
           <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-10 pt-10 items-center">
             <div className="">

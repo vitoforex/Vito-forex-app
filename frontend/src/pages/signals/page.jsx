@@ -56,9 +56,11 @@ const page = () => {
   return (
     <main className="flex-grow">
       <div className="mx-auto w-[90%]">
+      <div className="text-center">
         <h1 className="custom-underline text-center text-3xl font-semibold pt-20">
           Our Pricing
         </h1>
+      </div>
         <div className="py-20">
           <div className="mx-auto w-[90%] flex justify-center items-center">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-28">
