@@ -30,8 +30,10 @@ def create_checkout_session(request):
             ],
             mode='payment',
             customer_creation='always',
-            success_url="https://joshuab.pythonanywhere.com/payment/success?session_id={CHECKOUT_SESSION_ID}",
-            cancel_url="https://joshuab.pythonanywhere.com/cancel",
+            #success_url="https://joshuab.pythonanywhere.com/payment/success?session_id={CHECKOUT_SESSION_ID}",
+            #cancel_url="https://joshuab.pythonanywhere.com/cancel",
+            success_url="http://localhost:8000/payment/success?session_id={CHECKOUT_SESSION_ID}",
+            cancel_url="http://localhost:8000/cancel",
         )
 
         print(checkout_session)

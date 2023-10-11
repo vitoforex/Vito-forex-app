@@ -1,70 +1,72 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { PricingCard } from "../../components";
+import {
+  defaultPricing,
+  basicUpgradePricing,
+  standardUpgradePricing,
+} from "../../constants/pricing";
+import {Spinner} from "../../components";
 
-const pricing = [
-  {
-    title: "Basic fxb signals",
-    price: "29.99",
-    original_price: "69.99",
-    tag: "Good for begineers",
-    save: "80",
-    months: "1",
-    priceId:"price_1NnLT7COWoAHqo4Jee4RuX6q",
-    features: [
-      "Daily Signals",
-      "85% win-rateof currecy pairs",
-      "Calculated and managed risk",
-    ],
-    restricted: ["Trade Breakdown", " Daily setups"],
-  },
-  {
-    title: "Standard fxb signals",
-    price: "79.99",
-    original_price: "119.99",
-    tag: "Good for Intermediates",
-    save: "78",
-    months: "3",
-    priceId:"price_1NnLUhCOWoAHqo4JwvUbYWAR",
-    features: [
-      "Daily Signals",
-      "85% win-rateof currecy pairs",
-      "Calculated and managed risk",
-      "Trade Breakdown",
-    ],
-    restricted: [" Daily setups"],
-  },
-  {
-    title: "Premium fxb signals",
-    original_price: "269.99",
-    price: "149.99",
-    tag: "Good for Experts",
-    save: "85",
-    months: "6",
-    priceId:"price_1NnLVzCOWoAHqo4JxQvj4wMF",
-    features: [
-      "Daily Signals",
-      "85% win-rateof currecy pairs",
-      "Calculated and managed risk",
-      "Trade Breakdown",
-      " Daily setups",
-    ],
-    restricted: [],
-  },
-];
+const Page = () => {
+  const [pricing, setPricing] = useState(null);
+  const [currentPlan, setCurrentPlan] = useState(null)
+  const [currentPlanIdx, setCurrentPlanIdx] = useState(null)
 
-const page = () => {
+  useEffect(() => {
+      async function getUserInfo(){
+        try {
+          const response = await axios.get("/auth/user_status");
+          if (response.data.email) {
+            if (response.data.current_plan === 'basic'){
+              setCurrentPlan('basic')
+              setCurrentPlanIdx(0)
+              setPricing(basicUpgradePricing)
+            }else if (response.data.current_plan === 'standard'){
+              setCurrentPlan('standard')
+              setCurrentPlanIdx(1)
+              setPricing(standardUpgradePricing)
+            }else if (response.data.current_plan === 'no-plan'){
+              setCurrentPlan('no-plan');
+              setCurrentPlanIdx(-2)
+              setPricing(defaultPricing); 
+            }else{
+              // if they are premium users
+              setCurrentPlan('premium')
+              setCurrentPlanIdx(2)
+              setPricing(defaultPricing); 
+            }
+            
+          } else {
+            setCurrentPlan('no-plan');
+            setCurrentPlanIdx(-2)
+            setPricing(defaultPricing); 
+          }
+        } catch (error) {
+          console.log(error)
+          setCurrentPlan('no-plan');
+          setCurrentPlanIdx(-2)
+          setPricing(defaultPricing); 
+        }
+      }
+      getUserInfo();
+    }, 
+    []);
+
+
+
   return (
     <main className="flex-grow">
       <div className="mx-auto w-[90%]">
-      <div className="text-center">
-        <h1 className="custom-underline text-center text-3xl font-semibold pt-20">
-          Our Pricing
-        </h1>
-      </div>
+        <div className="text-center">
+          <h1 className="custom-underline text-center text-3xl font-semibold pt-20">
+            Our Pricing
+          </h1>
+        </div>
         <div className="py-20">
           <div className="mx-auto w-[90%] flex justify-center items-center">
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-28">
-              {pricing.map((option, idx) => (
+              {(pricing && currentPlan )?(pricing.map((option, idx) => (
                 <PricingCard
                   title={option.title}
                   price={option.price}
@@ -75,8 +77,12 @@ const page = () => {
                   tag={option.tag}
                   original_price={option.original_price}
                   priceId={option.priceId}
+                  currentPlan={currentPlan}
+                  plan={option.plan}
+                  currentPlanIdx={currentPlanIdx}
+                  planIdx={idx}
                 />
-              ))}
+              ))):<Spinner/>}
             </div>
           </div>
         </div>
@@ -85,4 +91,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
