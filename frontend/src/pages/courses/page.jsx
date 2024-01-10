@@ -17,7 +17,7 @@ const Page = () => {
     fetchCourses();
   }, []);
 
-  console.log(courses);
+  
   return (
     <>
       <main className="flex-grow">
@@ -29,7 +29,7 @@ const Page = () => {
         </div>
           <div className="py-20">
             <div className="flex justify-center items-center">
-              <div className="grid gap-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
+              <div className={`${courses!=null&&"grid"} gap-6 lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1`}>
                 {courses === null ? (
                   <Spinner />
                 ) : (

@@ -10,36 +10,38 @@ const page = () => {
         </div>
       </header>
       <div className="py-20 mx-auto w-[80%]">
-      <div className="text-center">
-
-        <h2 className="text-center text-3xl capitalize custom-underline font-semibold">
-          About
-        </h2>
-      </div>
+        <div className="text-center">
+          <h2 className="text-center text-3xl capitalize custom-underline font-semibold">
+            About
+          </h2>
+        </div>
         <div className="flex justify-centers items-center">
           <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-10 pt-10 items-center">
             <div className="">
-              <PersonProfile/>
+              <PersonProfile />
             </div>
             <div className="lg:col-span-2">
               <p className="">
-                I am David Nsereko, an avid explorer of the financial realm. My
-                journey into the world of forex trading was sparked by a desire
-                to unravel the intricacies of global markets. As I delved into
-                charts and analyzed trends, I found myself captivated by the ebb
-                and flow of currencies. What began as a curious endeavor soon
-                transformed into a passionate pursuit. The challenges I
-                encountered along the way only fueled my determination to excel.
-                Now, armed with valuable insights and hard-earned wisdom, my
-                mission is to empower fellow traders. Guided by a burning desire
-                to share knowledge, I aspire to help others navigate the dynamic
-                landscape of forex trading.
+                Hi, I am David Nsereko, a Ugandan male business man who trades
+                forex. I’ve always wanted to be financially free and I quickly
+                realized it was impossible to achieve my dream with a regular
+                job especially with the current systems in our country. My
+                journey into the financial markets started in 2021, i was
+                challenged by a colleague who later introduced me to forex
+                trading. Since then, my career in forex trading has been a
+                reality that would help me achieve my long term freedom.
+                However, being successful is not something to achieve overnight,
+                this journey( i can say) has consumed most of my time, with
+                dedication and commitment to constant learning. I’ve used the
+                knowledge acquired over this period of time to come up with a
+                trading guide that has helped a number of traders start their
+                careers, this has been possible with the Vito Forex Academy.
               </p>
             </div>
           </div>
         </div>
       </div>
-      <Gallery/>
+      <Gallery />
     </main>
   );
 };
