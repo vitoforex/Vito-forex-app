@@ -1,8 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-import { Link } from "react-router-dom";;
-
+import { Link } from "react-router-dom";
 
 const NavigationMenu = ({ open, setOpen }) => {
   const closedStyles = {
@@ -21,6 +20,15 @@ const NavigationMenu = ({ open, setOpen }) => {
       className={` transition-all ease-in-out duration-[2s] flex justify-center items-center z-50 fixed h-[100vh] bg-[#000] w-[100%] top-0 left-0`}
     >
       <ul className="text-center">
+        <li className="my-8 text-3xl text-white font-bold">
+          <Link
+            onClick={() => setOpen(false)}
+            className="transition-all duration-200 ease-in-out hover:text-primary"
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
         <li className="my-8 text-3xl text-white font-bold">
           <Link
             onClick={() => setOpen(false)}

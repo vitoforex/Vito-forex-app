@@ -90,6 +90,14 @@ const Navbar = () => {
                 </div>
                 <div className="items ">
                   <ul className="flex flex-row items-center justify-between">
+                  <li className="mx-4">
+                      <Link
+                        className="text-[18px] text-gray-200  font-semibold  hover:text-primary transition-all hover:underline-offset-2 hover:underline"
+                        to={"/"}
+                      >
+                        Home
+                      </Link>
+                    </li>
                     <li className="mx-4">
                       <Link
                         className="text-[18px] text-gray-200  font-semibold  hover:text-primary transition-all hover:underline-offset-2 hover:underline"
