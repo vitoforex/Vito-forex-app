@@ -25,8 +25,12 @@ import { updateUserIsLoggedIn } from "./features/authSlice";
 import { useDispatch } from "react-redux";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 
+
 function App() {
   const dispatch = useDispatch();
+
+
+
   useEffect(() => {
     async function getIsUserLoggedInStatus() {
       try {
