@@ -69,12 +69,7 @@ const PricingCard = ({
             {title}
           </h2>
           <h3 className="capitalize text-center font-light py-4">{tag}</h3>
-          <div className="flex justify-center items-center pt-4">
-            <div className="mr-2 line-through">${original_price}</div>
-            <div className="ml-2 bg-primary py-2 px-4 rounded-full ">
-              <span className="text-white">SAVE {save}%</span>
-            </div>
-          </div>
+         
           <div className="flex justify-center items-center pt-8 pb-4">
             <h2 className="text-black">
               <span className="text-[16px]">$ </span>
