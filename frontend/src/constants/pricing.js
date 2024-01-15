@@ -9,6 +9,7 @@ export const defaultPricing = [ // applicable to no-plan and not logged in users
         save: "80",
         months: "1",
         priceId:"price_1NnLT7COWoAHqo4Jee4RuX6q",
+        purchaseLink:"https://selar.co/vito-forex-basic",
         features: [
           "Daily Signals",
           "85% win-rateof currecy pairs",
@@ -26,6 +27,7 @@ export const defaultPricing = [ // applicable to no-plan and not logged in users
         save: "78",
         months: "3",
         priceId:"price_1NnLUhCOWoAHqo4JwvUbYWAR",
+        purchaseLink:"https://www.selar.co/vito-forex-standard",
         features: [
           "Daily Signals",
           "85% win-rateof currecy pairs",
@@ -39,11 +41,12 @@ export const defaultPricing = [ // applicable to no-plan and not logged in users
         plan: "premium",
         planIdx:2,
         original_price: "269.99",
-        price: "149.99",
+        price: "119.99",
         tag: "Good for Experts",
         save: "85",
         months: "6",
         priceId:"price_1NnLVzCOWoAHqo4JxQvj4wMF",
+        purchaseLink:"https://www.selar.co/vito-forex-premium",
         features: [
           "Daily Signals",
           "85% win-rateof currecy pairs",
@@ -151,7 +154,7 @@ export const standardUpgradePricing = [ // applicable to users that currently ha
   {
     title: "Premium fxb signals",
     original_price: "269.99",
-    price: "69.99",
+    price: "119.99",
     tag: "Good for Experts",
     save: "85",
     months: "6",

@@ -81,6 +81,7 @@ const Page = () => {
                   plan={option.plan}
                   currentPlanIdx={currentPlanIdx}
                   planIdx={idx}
+                  purchaseLink={option.purchaseLink}
                 />
               ))):<Spinner/>}
             </div>

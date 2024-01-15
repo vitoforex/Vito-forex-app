@@ -4,12 +4,7 @@ import {
   faCheckSquare,
   faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
-import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import Provider from "react-redux";
-import { store } from "../../store/store";
-import axios from "axios";
-import Loader from "../../assets/images/loaders/btn_loader.gif";
+
 
 const PricingCard = ({
   price,
@@ -17,44 +12,14 @@ const PricingCard = ({
   title,
   features,
   restricted,
-  save,
   tag,
-  original_price,
-  priceId,
   currentPlan,
   plan,
   planIdx,
   currentPlanIdx,
+  purchaseLink,
 }) => {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const navigate = useNavigate();
   const [currentText, setCurrentText] = useState("Buy Now");
-
-  async function Checkout() {
-    console.log("clicking", isLoggedIn);
-    if (isLoggedIn === false) {
-      return navigate("/login");
-    } else {
-      setCurrentText(Loader);
-      let data = {
-        price: priceId,
-      };
-      const response = await axios.post(
-        "/payment/checkout",
-        JSON.stringify(data),
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      console.log(response);
-      if (response.status === 200) {
-        let redirect_checkout_url = response.data.url;
-        window.location.replace(redirect_checkout_url);
-      }
-    }
-  }
 
   return (
     <div className="w-80 shadow-xl  rounded-lg">
@@ -81,27 +46,23 @@ const PricingCard = ({
           </div>
           <div className="py-4 flex justify-center items-center">
           {
-            currentPlan === null ? (<button
-                onClick={Checkout}
+            currentPlan === null ? (<a
+                href={purchaseLink}
                 className="font-bold bg-gradient-to-r from-primary to-secondary text-white py-2 px-8 active:scale-80"
+                target="_blank" 
+                rel="noreferrer"
               >
-                {currentText.length < 10 ? (
-                  currentText
-                ) : (
-                  <img src={currentText} alt="loader" height={5} width={25} />
-                )}
-              </button>): (
+                {currentText}
+              </a>): (
                ( currentPlan !== plan && planIdx > currentPlanIdx) && (
-                <button
-                onClick={Checkout}
+                <a
+                href={purchaseLink}
                 className="font-bold bg-gradient-to-r from-primary to-secondary text-white py-2 px-8 active:scale-80"
+                target="_blank" 
+                rel="noreferrer"
               >
-                {currentText.length < 10 ? (
-                  currentText
-                ) : (
-                  <img src={currentText} alt="loader" height={5} width={25} />
-                )}
-              </button>
+                {currentText}
+              </a>
                )
               )
           }
