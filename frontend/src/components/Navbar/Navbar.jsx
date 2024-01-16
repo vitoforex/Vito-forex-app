@@ -81,7 +81,7 @@ const Navbar = () => {
         currentPath !== "/dashboardtest" && (
           <nav className="z-50 bg-black">
             {/* big screens navigation */}
-            <div className="mx-auto w-[90%] py-4  ">
+            <div className="mx-auto w-[90%] max-w-[1700px] py-4  ">
               <div className="hidden lg:flex flex-row w-[100%] items-center justify-between ">
                 <div className="">
                   <Link to={"/"}>

@@ -17,26 +17,22 @@ import {
 import { ServiceCard } from "../../components";
 import David from "../../assets/images/david.png";
 
-const services = [
+const services = [  
   {
-    name: "Forex Trading",
-    icon: faMoneyBill,
-    benefits: ["Daily Insights", "Consultation", "Market Analysis"],
+    name: "Online lessons",
+    icon: faSchool,
+    benefits: ["We provide webinars", "Full mentorship programs", " Supportive assistance", "Live trading sessions"],
   },
   {
     name: "Signals",
     icon: faSignal,
-    benefits: ["Telegram Chaanel", "Consultation", "Market Analysis"],
+    benefits: ["We provide real time signals", "Daily market setups and insights", "Full market analysis"],
   },
-  {
-    name: "Online lessons",
-    icon: faSchool,
-    benefits: ["Zoom lessons", "Consultation", "Market Analysis"],
-  },
+ 
   {
     name: "Physical classes",
     icon: faPersonChalkboard,
-    benefits: ["Guidance", "Tutoring", "Market Analysis"],
+    benefits: ["Mentorship programs", "One on one discussions", "Live market analysis", "Supportive assistance"],
   },
 ];
 
@@ -140,7 +136,7 @@ export default function Home() {
         </h2>
       </div>
         <div className="mx-auto w-[95%] flex justify-center items-center">
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-10">
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-10">
             {services.map((service, idx) => (
               <ServiceCard
                 name={service.name}
@@ -154,7 +150,7 @@ export default function Home() {
 
       <FAQs />
 
-      <Testimonials />
+      {/*<Testimonials />*/}
 
       <div className="my-10">
         <div className="mx-auto w-[80%]">

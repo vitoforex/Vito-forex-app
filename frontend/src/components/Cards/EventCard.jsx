@@ -13,6 +13,7 @@ const EventCard = ({image, title, date, venue}) => {
             width={300}
             height={300}
             className="h-full w-full"
+            alt="title"
           />
         </div>
         <div className="text-white flex flex-col p-6">
@@ -24,14 +25,8 @@ const EventCard = ({image, title, date, venue}) => {
             <p className="text-lg py-2 text-gray-200">{venue}</p>
           </div>
 
-          <div className="flex   py-2">
+          <div className="flex py-2">
             <div className="mr-2">
-            <GenericButton
-              text={"Start Learning"}
-              classes={"bg-gray-200 text-black"}
-            />
-            </div>
-            <div className="mx-2">
             <GenericButton
               text={"Buy Tickets"}
               classes={"bg-gradient-to-r from-primary to-secondary text-white"}
