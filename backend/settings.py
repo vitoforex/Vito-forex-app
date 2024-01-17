@@ -29,8 +29,7 @@ DEBUG = True
 # sending emails
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_HOST_USER = "vitoforexoperations@gmail.com"
-# EMAIL_HOST_PASSWORD = "xatyxotspgcieoab"
-EMAIL_HOST_PASSWORD = "@Ssekamatte1"
+
 EMAIL_PORT = 547
 EMAIL_USE_TLS = True
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
