@@ -1,40 +1,25 @@
-from django.shortcuts import render
-from django_nextjs.render import render_nextjs_page_sync
+import json
+from django.shortcuts import render, HttpResponse
+from django.core.mail import send_mail
+from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
+@csrf_exempt
+def send_contact_form_email(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        message = data.get("message")
+        email = data.get("email")
+        name = data.get("subject")
+        print(message)
+        print(email)
+        print(name)
+        print(settings.EMAIL_HOST_USER,)
+        send_mail(
+            "Message from Vito forex contact form",
+            message,
+            settings.EMAIL_HOST_USER,
+            ["joshuabiyinzika22@gmail.com"],
+            fail_silently=False
+        )
 
-def index(request):
-    return render_nextjs_page_sync(request)
-
-def about(request):
-    return render_nextjs_page_sync(request)
-
-def signals(request):
-    return render_nextjs_page_sync(request)
-
-def courses(request):
-    return render_nextjs_page_sync(request)
-
-def course_detail(request, pk):
-    return render_nextjs_page_sync(request)
-
-def contact(request):
-    return render_nextjs_page_sync(request)
-
-def login(request):
-    return render_nextjs_page_sync(request)
-
-def register(request):
-    return render_nextjs_page_sync(request)
-
-def password_reset(request):
-    return render_nextjs_page_sync(request)
-
-
-def blog(request):
-    return render_nextjs_page_sync(request)
-
-def mentorship(request):
-    return render_nextjs_page_sync(request)
-
-def blog_detail(request, pk):
-    return render_nextjs_page_sync(request)

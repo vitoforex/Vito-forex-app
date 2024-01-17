@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react"
+import axios from "axios";
 import { HeaderCarousel } from "../../components";
 import {
   GenericButton,
@@ -97,6 +99,37 @@ const posts = [
 ];
 
 export default function Home() {
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const contactFormHandler = async () => {
+    if (!email || !subject || !message ){
+      alert("field missing!")
+      return "fields can't be empty!"
+    }
+
+    try {
+      let response = await axios.post(
+        "/pages-api/send_contact_form_email",
+        JSON.stringify({
+          email, 
+          subject,
+          message
+        }),
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: false,
+        }
+      );
+    } catch (error) {
+      console.log('could not send message')
+    }
+
+  }
+
   return (
     <main className="flex-grow ">
       <HeaderCarousel />
@@ -224,6 +257,8 @@ export default function Home() {
                 class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-3.5 "
                 placeholder="elon@tesla.com"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -239,6 +274,8 @@ export default function Home() {
                 class="block p-3.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 shadow-sm focus:ring-primary-500 focus:border-primary-500 "
                 placeholder="Let us know how we can help you"
                 required
+                value={subject}
+                onChange={(e) => setSubject(e.target.value)}
               />
             </div>
             <div class="sm:col-span-2">
@@ -253,9 +290,12 @@ export default function Home() {
                 rows="6"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 "
                 placeholder="Leave a comment..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
               ></textarea>
             </div>
             <GenericButton
+              onClick={contactFormHandler}
               text={"Send message"}
               classes={
                 " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"

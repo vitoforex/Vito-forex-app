@@ -22,6 +22,7 @@ from django.views.generic import TemplateView
 
 
 urlpatterns = [
+    path("pages-api/", include("PagesApp.urls")),
     path('admin/', admin.site.urls),
     path("auth/", include("UserAuthApp.urls")),
     path("payment/", include("PaymentsApp.urls")),
