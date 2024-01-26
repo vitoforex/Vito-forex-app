@@ -207,8 +207,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
-    "http://174.138.7.226/",
-    "https://vitoforex.com/"
+    "174.138.7.226",
+    "vitoforex.com"
 ]
 
 CORS_ALLOW_METHODS = (
