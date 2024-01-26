@@ -207,8 +207,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
-    "174.138.7.226",
-    "vitoforex.com"
+    
 ]
 
 CORS_ALLOW_METHODS = (
@@ -232,8 +231,7 @@ CORS_ALLOW_HEADERS = (
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",  # Add the origin(s) of your frontend here
     "https://joshuab.pythonanywhere.com",
-    "http://127.0.0.1:8000",
-    "http://vitoforex.com",
+    
 ]
 # React routes
 REACT_ROUTES = [
