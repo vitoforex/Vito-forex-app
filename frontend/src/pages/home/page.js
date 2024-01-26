@@ -141,17 +141,11 @@ export default function Home() {
           </h2>
         </div>
           <p className="text-center py-8">
-            Vito Forex embodies a dynamic and visionary approach to forex
-            trading services, setting a new standard for traders worldwide. Our
-            platform is a haven for both seasoned experts and budding
-            enthusiasts, providing a rich ecosystem that encompasses trading
-            tools, resources, and a collaborative community. We specialize in
-            offering meticulously crafted forex signals that empower traders
-            with real-time insights, enabling them to navigate the complex
-            currency markets with precision and confidence. With an unwavering
-            commitment to excellence, Vito Forex seamlessly blends innovation
-            with strategic expertise to foster success stories in the
-            ever-evolving realm of forex trading.
+          Vito forex is a trading brand that introduces Vito Forex academy(VFA). The vito forex academy is aimed at providing a dynamic and visionary approach to forex trading and suitable for beginner, intermediate and advanced traders. 
+          Vito forex academy was founded in 2023 and we’ve helped a number of traders begin their careers and also improved beginners to advanced traders and develop their trading strategies.We specialize in providing a comprehensive trading guide and system to enable traders to stand in the forex market and also improve on their profitability in their forex careers. We also improve on your confidence and boost your mindset to help you strengthen your mental ability to keep in this business.
+          Vito forex offers numerous services which include; providing real-time signals, daily market analysis and trade breakdown.
+          We also provide mentorship programs for the different categories of traders. We offer support to our traders and help them grow their careers.
+
           </p>
           <div className="flex flex-wrap justify-center items-center">
             <GenericButton

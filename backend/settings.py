@@ -36,7 +36,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
 
-ALLOWED_HOSTS = ["*", "joshuab.pythonanywhere.com"]
+ALLOWED_HOSTS = ["localhost", "vitoforex.com", "http://174.138.7.226", "*" ]
 
 
 # Application definition
@@ -110,12 +110,27 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+"""
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+"""
+
+DATABASES = {
+    "default": {
+         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'vitoforexdb',
+        'USER': 'vitoforex',
+        'PASSWORD': '@Ssekamatte1',
+        'HOST': 'localhost',
+        'PORT': '',
+    }
+}
+
+
 
 
 # Password validation
@@ -176,9 +191,11 @@ REDIRECT_URL = "localhost:3000"
 
 # stripe payments
 
+"""
 STRIPE_SECRET_KEY_TEST = "sk_test_51NnLJiCOWoAHqo4JynKkzgl7VtwPjzbkKPnBREjlXZ2W0PFynxa5oz3eRWxE7bxggafuwMva3XuusoNE4JiiqZn00072uwh35o"
 
 STRIPE_WEB_HOOK_TEST = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
+"""
 
 
 # custom user model
@@ -191,6 +208,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
+    "http://174.138.7.226/",
+    "https://vitoforex.com/"
 ]
 
 CORS_ALLOW_METHODS = (
@@ -215,6 +234,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:3000",  # Add the origin(s) of your frontend here
     "https://joshuab.pythonanywhere.com",
     "http://127.0.0.1:8000",
+    "http://vitoforex.com",
 ]
 # React routes
 REACT_ROUTES = [

@@ -1,5 +1,6 @@
 import React from "react";
 import { GenericButton } from "../../components";
+import { Link } from "react-router-dom";
 
 const page = () => {
   return (
@@ -7,7 +8,7 @@ const page = () => {
       <section class="bg-gray-50 ">
         <div class="grid py-8 px-4 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
           <div class="place-self-center mr-auto lg:col-span-7">
-            <h1 class="mb-4 max-w-2xl text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl ">
+            <h1 class="mb-4 max-w-2xl text-4xl font-medium leading-none md:text-5xl xl:text-6xl ">
               Unlock Your Forex Trading Potential
             </h1>
             <p class="mb-6 max-w-2xl font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
@@ -15,12 +16,19 @@ const page = () => {
               enables them to maneuver in the forex market. Are you ready to
               start your forex career, don't hesitate to join our classes now
             </p>
+            <Link
+              to={"https://selar.co/vito-forex-mentorship"}
+              target="_blank"
+            >
             <GenericButton
-              text={"Start Learning"}
+              text={"Start Mentorship"}
               classes={
                 " font-bold bg-gradient-to-r from-primary to-secondary text-white mx-2"
               }
+              
             />
+              
+            </Link>
           </div>
           <div class="hidden lg:mt-0 lg:col-span-5 lg:flex">
             <img
@@ -34,7 +42,7 @@ const page = () => {
       <section class="bg-white ">
         <div class="py-8 px-4 mx-auto max-w-screen-xl sm:py-16 lg:px-6">
           <div class="mb-8 max-w-screen-md lg:mb-16">
-            <h2 class="mb-4 text-4xl font-extrabold text-gray-900 ">
+            <h2 class="mb-4 text-4xl font-bold text-gray-900 ">
               What we offer.
             </h2>
           </div>
@@ -52,12 +60,14 @@ const page = () => {
                 ➤ Introduction to basic concepts, market analysis and access to
                 to standard signal plan
               </p>
+              <Link to={"https://selar.co/vito-forex-basic"} target="_blank">
               <GenericButton
                 text={"Get Started"}
                 classes={
                   " font-bold bg-gradient-to-r from-primary to-secondary text-white"
                 }
               />
+              </Link>
             </div>
             <div>
               <h3 class="mb-2 text-xl font-bold ">INTERMEDIATE TRADERS</h3>
@@ -70,12 +80,14 @@ const page = () => {
               <p class="text-gray-500 dark:text-gray-400 pb-2">
                 ➤ Help you develop a traders mindset
               </p>
+              <Link to={"https://selar.co/vito-forex-standard"} target="_blank">
               <GenericButton
                 text={"Get Started"}
                 classes={
                   " font-bold bg-gradient-to-r from-primary to-secondary text-white"
                 }
               />
+              </Link>
             </div>
             <div>
               <h3 class="mb-2 text-xl font-bold ">ADVANCED TRADERS</h3>
@@ -91,12 +103,14 @@ const page = () => {
               <p class="text-gray-500 dark:text-gray-400 pb-2">
                 ➤ Help you develop your own trading strategy
               </p>
+              <Link to={"https://selar.co/vito-forex-premium"} target="_blank">
               <GenericButton
                 text={"Get Started"}
                 classes={
                   " font-bold bg-gradient-to-r from-primary to-secondary text-white"
                 }
               />
+              </Link>
             </div>
           </div>
         </div>
@@ -112,12 +126,17 @@ const page = () => {
               Mentoring is about passing on valuable forex trading lessons to
               make you smarter, wiser, and more capable.
             </p>
+            <Link
+              to={"https://selar.co/vito-forex-mentorship"}
+              target="_blank"
+            >
             <GenericButton
               text={"Sign Up For Mentorship"}
               classes={
                 " font-bold bg-gradient-to-r from-primary to-secondary text-white mx-2"
               }
             />
+            </Link>
           </div>
         </div>
       </section>

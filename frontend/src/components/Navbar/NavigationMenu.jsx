@@ -42,7 +42,7 @@ const NavigationMenu = ({ open, setOpen }) => {
           <Link
             className="transition-all duration-200 ease-in-out hover:text-primary"
             onClick={() => setOpen(false)}
-            to="/#how-it-works"
+            to="/courses"
           >
             Courses
           </Link>
@@ -51,7 +51,7 @@ const NavigationMenu = ({ open, setOpen }) => {
           <Link
             className="transition-all duration-200 ease-in-out hover:text-primary"
             onClick={() => setOpen(false)}
-            to="#"
+            to="/signals"
           >
             Signals
           </Link>
@@ -60,7 +60,7 @@ const NavigationMenu = ({ open, setOpen }) => {
           <Link
             className="transition-all duration-200 ease-in-out hover:text-primary"
             onClick={() => setOpen(false)}
-            to="#"
+            to="/contact"
           >
             Contact
           </Link>
@@ -69,9 +69,18 @@ const NavigationMenu = ({ open, setOpen }) => {
           <Link
             className="transition-all duration-200 ease-in-out hover:text-primary"
             onClick={() => setOpen(false)}
-            to="#"
+            to="/blog"
           >
             Blog
+          </Link>
+        </li>
+        <li className="my-8 text-3xl text-white font-bold">
+          <Link
+            className="transition-all duration-200 ease-in-out hover:text-primary"
+            onClick={() => setOpen(false)}
+            to="/mentorship"
+          >
+            Mentorship
           </Link>
         </li>
       </ul>

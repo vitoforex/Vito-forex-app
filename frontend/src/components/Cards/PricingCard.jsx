@@ -12,14 +12,13 @@ const PricingCard = ({
   title,
   features,
   restricted,
-  tag,
   currentPlan,
   plan,
   planIdx,
   currentPlanIdx,
   purchaseLink,
 }) => {
-  const [currentText, setCurrentText] = useState("Buy Now");
+  const [currentText, setCurrentText] = useState("Get Access");
 
   return (
     <div className="w-80 shadow-xl  rounded-lg">
@@ -33,7 +32,7 @@ const PricingCard = ({
           <h2 className="uppercase text-lg text-center font-semibold">
             {title}
           </h2>
-          <h3 className="capitalize text-center font-light py-4">{tag}</h3>
+          
          
           <div className="flex justify-center items-center pt-8 pb-4">
             <h2 className="text-black">

@@ -43,7 +43,7 @@ const Footer = () => {
                   <ul className="pt-4">
                     <li>
                       <Link
-                        to={"#"}
+                        to={"tel:256708659816"}
                         className="underline  underline-offset-2 text-[14px]"
                       >
                         +256708659816
@@ -51,10 +51,10 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                        to={"#"}
+                        to={"mailto:vitoforextrader@gmail.com"}
                         className="underline  underline-offset-2 text-[14px]"
                       >
-                        support@vitoforex.com
+                        vitoforextrader@gmail.com
                       </Link>
                     </li>
                   </ul>
@@ -117,7 +117,7 @@ const Footer = () => {
                   <ul className="flex justify-between items-center lg:flex-row flex-col">
                     <li className="py-[3px]">
                       <Link
-                        to={"#"}
+                        to={"/"}
                         className="text-gray-400  text-1xl hover:text-primary transition-all"
                       >
                         HOME
@@ -125,7 +125,7 @@ const Footer = () => {
                     </li>
                     <li className="py-[3px]">
                       <Link
-                        to={"#"}
+                        to={"/about"}
                         className="text-gray-400  text-1xl hover:text-primary transition-all"
                       >
                         ABOUT
@@ -133,7 +133,7 @@ const Footer = () => {
                     </li>
                     <li className="py-[3px]">
                       <Link
-                        to={"#"}
+                        to={"/signals"}
                         className="text-gray-400  text-1xl hover:text-primary transition-all"
                       >
                         SIGNALS
@@ -141,7 +141,7 @@ const Footer = () => {
                     </li>
                     <li className="py-[3px]">
                       <Link
-                        to={"#"}
+                        to={"/courses"}
                         className="text-gray-400  text-1xl hover:text-primary transition-all"
                       >
                         COURSES
@@ -149,10 +149,18 @@ const Footer = () => {
                     </li>
                     <li className="py-[3px]">
                       <Link
-                        to={"#"}
+                        to={"/contact"}
                         className="text-gray-400  text-1xl hover:text-primary transition-all"
                       >
                         CONTACT
+                      </Link>
+                    </li>
+                    <li className="py-[3px]">
+                      <Link
+                        to={"/mentorship"}
+                        className="text-gray-400  text-1xl hover:text-primary transition-all"
+                      >
+                        MENTORSHIP
                       </Link>
                     </li>
                   </ul>
