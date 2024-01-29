@@ -18,6 +18,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ServiceCard } from "../../components";
 import David from "../../assets/images/david.png";
+import { Link } from "react-router-dom";
 
 const services = [  
   {
@@ -310,12 +311,14 @@ export default function Home() {
                     Book a call with us to see how we can help you best!
                   </p>
                   <div className="flex justify-center items-center py-4">
+                  <Link target="_blank" to="https://calendly.com/vitoforex/30min">
                   <GenericButton
                     text={"Book a Call"}
                     classes={
                       " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
                     }
                   />
+                  </Link>
                   </div>
                 </div>
             </div>
