@@ -25,7 +25,6 @@ urlpatterns = [
     path("pages-api/", include("PagesApp.urls")),
     path('admin/', admin.site.urls),
     path("auth/", include("UserAuthApp.urls")),
-    # path("payment/", include("PaymentsApp.urls")),
     path("courses_api/", include("CoursesApp.urls")),
     path("blog_api/", include("BlogApp.urls")),
     path("forex-api/", include("ForexContentApp.urls")),

@@ -6,8 +6,6 @@ import {
   Signals,
   TradeBreakdown,
   DailySetups,
-  WinRate,
-  CalculatedRisk,
   NoPlan,
   ProfileModal,
   Profile,
@@ -15,9 +13,10 @@ import {
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUserLarge } from "@fortawesome/free-solid-svg-icons";
-import axios, { AxiosError } from "axios";
-import { useSelector, useDispatch } from "react-redux";
+import axios from "axios";
+import { useDispatch } from "react-redux";
 import { updateUserIsLoggedIn } from "../../features/authSlice";
+import { toast } from "react-toastify";
 
 const Dashboard = () => {
   const [sideBarOpen, setSideBarOpen] = useState(true);
@@ -41,10 +40,28 @@ const Dashboard = () => {
           setCurrentPlan(response.data.current_plan);
         } else {
           navigate("/login");
-          // make a toast tell a user their session expired
+          toast("Your session expired, Please login again.", {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         }
       } catch {
-        console.log("Unexpected error has occured");
+        toast("We encountered an error while trying to verify you.", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       }
     }
     getUserStatus();
@@ -59,7 +76,16 @@ const Dashboard = () => {
         navigate("/");
       }
     } catch {
-      console.log("An error occured while logging you out!");
+      toast("We encountered an error while trying to log you out", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
   };
 
@@ -102,11 +128,11 @@ const Dashboard = () => {
             </div>
             <div className="flex items-center">
               <div className="mx-2">
-                <span className="font-bold underline underline-offset-1 text-[13px] text-white">
+                <span className="font-bold underline underline-offset-1 text-[13px] text-white sm:block hidden">
                   Welcome {name}!
                 </span>
               </div>
-              <div className="mx-2">
+              <div className="mx-2 sm:block hidden">
                 <button
                   onClick={() => openProfileModal()}
                   className="p-2 bg-gray-400 rounded-full active:scale-95 transition-all"
@@ -214,7 +240,7 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className="mx-auto w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto scrollable">
+            <div className="mx-auto w-[100%] md:w-[90%] py-10 pb-20 pl-4 max-h-[90vh] overflow-auto scrollable">
               {currentPlan === "no-plan" ? (
                 <NoPlan />
               ) : (
