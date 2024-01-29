@@ -22,4 +22,5 @@ export {default as Signals } from '../components/Dashboard/Signals';
 export {default as DailySetups } from '../components/Dashboard/DailySetups';
 export {default as TradeBreakdown } from '../components/Dashboard/TradeBreakdown';
 export {default as WeekDropdown } from '../components/Dropdowns/WeekDropdown';
+export {default as TopBlogPosts } from '../components/TopBlogPosts/TopBlogPosts';
 

@@ -17,7 +17,7 @@ const Pages = () => {
     };
     getBlogPosts();
   }, []);
-  console.log(posts);
+
   return (
     <>
       <div id="blog" className="bg-gray-100 px-4 xl:px-0 py-12">

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 ;
 
 const BlogPostCard = ({
@@ -6,19 +7,31 @@ const BlogPostCard = ({
   title,
   author,
   author_image,
-  caption,
   date,
-  read_time,
+  post_id
 }) => {
+
+  const monthsShort = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+  ];
+
+  const dateObj = new Date(date);
+  const year = dateObj.getFullYear().toString();
+  const month = monthsShort[(dateObj.getMonth() + 1).toString().padStart(2, '0')]; 
+  const day = dateObj.getDate().toString().padStart(2, '0');
+
+
   return (
+    <Link to={`/blog/${post_id}`}>
     <div className="bg-[#333] p-4 rounded-2xl shadow-2xl w-[280px]">
       <div className="p-2 overflow-hidden w-[250px] h-40">
         <img
-          src={image}
+          src={`${image}`}
           width={300}
           height={300}
           className="h-full w-full "
-          alt="blog image"
+          alt="featured"
         />
       </div>
       <div className="py-2">
@@ -28,18 +41,16 @@ const BlogPostCard = ({
             </span>
         </div>
         <div className="py-2">
-            <h2 className="text-lg text-white">
+            <h2 className="text-lg text-white line-clamp-1">
                 {title}
             </h2>
-            <p className="text-gray-300 text-sm">
-                {caption.slice(0, 55)}...
-            </p>
+           
         </div>
 
       </div>
-      <div className="grid grid-cols-2  items-center">
+      <div className="flex justify-between  items-center">
         <div className="">
-            <img src={author_image} height={50} width={50} className="rounded-full"/>
+            <img src={author_image} alt="author" height={50} width={50} className="h-10 w-10 rounded-full"/>
         </div>
         <div className="">
             <h2 className="text-sm font-semibold text-white">
@@ -47,17 +58,16 @@ const BlogPostCard = ({
             </h2>
             <div className="flex ">
                 <div className="text-gray-300 text-[9px]">
-                    {date}
+                    {`${day} ${month} ${year}`}
                 </div>
-                <div className="text-gray-300 text-[9px] ml-2">
-                    {read_time} min read
-                </div>
+               
             </div>
         </div>
       </div>
 
    
     </div>
+    </Link>
   );
 };
 

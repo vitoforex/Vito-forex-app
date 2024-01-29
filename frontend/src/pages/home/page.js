@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-import { HeaderCarousel } from "../../components";
+import { HeaderCarousel, TopBlogPosts } from "../../components";
 import {
   GenericButton,
   FAQs,
@@ -209,20 +209,7 @@ export default function Home() {
           </h2>
         </div>
           <div className="flex justify-center items-center py-10">
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-10">
-              {posts.map((post, idx) => (
-                <BlogPostCard
-                  image={post.image}
-                  title={post.title}
-                  author={post.author}
-                  author_image={post.author_image}
-                  read_time={post.read_time}
-                  date={post.date}
-                  caption={post.caption}
-                  key={idx}
-                />
-              ))}
-            </div>
+              <TopBlogPosts/>
           </div>
         </div>
       </div>
