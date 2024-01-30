@@ -9,7 +9,6 @@ const WeekDropdown = ({
 }) => {
   const [dates, setDates] = useState(null);
   function onChangeHandler(e) {
-    console.log(e.target.value);
     currentDayUpdater(e.target.value);
   }
 
@@ -17,7 +16,6 @@ const WeekDropdown = ({
     if (parentComponent === "DailySetups") {
       if (dailySetUps) {
         let dates = dailySetUps.map((setup, idx) =>{
-          console.log(formartDate(setup.fields.date_created))
           return formartDate(setup.fields.date_created)}
         );
         setDates(dates);

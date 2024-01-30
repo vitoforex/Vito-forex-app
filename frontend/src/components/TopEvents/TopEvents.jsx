@@ -12,7 +12,7 @@ const TopEvents = () => {
         const response = await axios.get("/events-api/events/");
         setEvents(response.data.events.slice(0, 3));
       } catch (error) {
-        console.log("couldn't fetch events");
+        // console.log("couldn't fetch events");
       }
     };
     getEvents();

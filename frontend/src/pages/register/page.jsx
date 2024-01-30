@@ -94,7 +94,6 @@ const Page = () => {
     setPassword(e.target.value);
   }
   async function onSubmitHandler(form_data) {
-    console.log(form_data);
 
     let data = {
       email,
@@ -103,7 +102,6 @@ const Page = () => {
       first_name: firstName,
       last_name: lastName,
     };
-    console.log(data);
     try {
       let response = await axios.post(
         "/auth/register",
@@ -114,7 +112,6 @@ const Page = () => {
           },
         }
       );
-      console.log(response);
       toast("Registered You Successfully! You can login.", {
         position: "top-right",
         autoClose: 5000,

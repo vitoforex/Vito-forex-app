@@ -17,7 +17,7 @@ const TradeBreakdown = () => {
         const trade_breakdowns = JSON.parse(response.data.trade_breakdowns);
         setTradeBreakDown(trade_breakdowns);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
     getTradeBreakDowns();

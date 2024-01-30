@@ -35,7 +35,6 @@ const Dashboard = () => {
       try {
         const response = await axios.get("/auth/user_status");
         if (response.data.email) {
-          console.log(response);
           setName(response.data.first_name);
           setCurrentPlan(response.data.current_plan);
         } else {

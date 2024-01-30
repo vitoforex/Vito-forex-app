@@ -19,6 +19,7 @@ import {
 import { ServiceCard } from "../../components";
 import David from "../../assets/images/david.png";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const services = [  
   {
@@ -125,8 +126,28 @@ export default function Home() {
           withCredentials: false,
         }
       );
+
+      toast("Your message was sent. Thank you!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (error) {
-      console.log('could not send message')
+      toast("We could not send your message. Try again!", {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
     }
 
   }

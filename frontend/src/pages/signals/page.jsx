@@ -43,7 +43,6 @@ const Page = () => {
             setPricing(defaultPricing); 
           }
         } catch (error) {
-          console.log(error)
           setCurrentPlan('no-plan');
           setCurrentPlanIdx(-2)
           setPricing(defaultPricing); 

@@ -40,11 +40,7 @@ def login_user(request):
         data = json.loads(request.body)
         email = data.get('email')
         password = data.get('password')
-
-
         user = authenticate(request, email=email, password=password)
-        print(user)
-
         if user is not None:
             login(request, user)
             return JsonResponse({'message': 'Login successful', 'session_id': request.session.session_key})
@@ -57,7 +53,6 @@ def logout_user(request):
     return JsonResponse({"message":"Logged out successfully"})
 
 def get_user_status(request):
-    print(request.user)
     if request.user.is_authenticated:
         user_data = {
             'username': request.user.username,

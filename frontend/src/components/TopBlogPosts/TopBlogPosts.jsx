@@ -12,7 +12,7 @@ const TopBlogPosts = () => {
         const response = await axios.get("/blog_api/");
         setPosts(response.data.posts.slice(0,3));
       } catch (error) {
-        console.log("couldn't fetch blog posts");
+        // console.log("couldn't fetch blog posts");
       }
     };
     getBlogPosts();

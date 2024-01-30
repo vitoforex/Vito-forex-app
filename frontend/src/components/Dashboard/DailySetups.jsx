@@ -17,7 +17,7 @@ const DailySetups = () => {
         const setups = JSON.parse(response.data.setups);
         setDailySetUps(setups);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
     getSetUps();

@@ -5,7 +5,6 @@ from .models import CustomUser
 
 @background(schedule=timezone.timedelta(seconds=10))  # Run the task daily
 def check_expired_plans():
-    print('running background task...........................')
     current_date = timezone.now()
     expired_users = CustomUser.objects.filter(plan_expiration_date__lt=current_date)
     

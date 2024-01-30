@@ -5,6 +5,7 @@ import { GenericButton, Spinner } from "..";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { formartDate } from "../../utils";
+import { toast } from "react-toastify";
 
 const Profile = () => {
   const [fullName, setFullName] = useState(null);
@@ -19,7 +20,6 @@ const Profile = () => {
       try {
         const response = await axios.get("/auth/user_status");
         if (response.data.email) {
-          console.log(response);
           setFullName(response.data.username);
           setCurrentPlan(response.data.current_plan);
           setEmail(response.data.email);
@@ -27,10 +27,18 @@ const Profile = () => {
           setPlanEndDate(response.data.plan_expiration_date)
         } else {
           navigate("/login");
-          // make a toast tell a user their session expired
         }
       } catch {
-        console.log("Unexpected error has occured");
+        toast("We encountered and error. Try again", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
       }
     }
     getUserStatus();

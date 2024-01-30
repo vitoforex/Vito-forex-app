@@ -4,8 +4,6 @@ from .models import BlogPost
 from django.http import JsonResponse, HttpResponse
 from django.core.paginator import Paginator
 
-
-
 def post_list(request):
     page_number = int(request.GET.get('page', 1))
     posts_per_page = 5

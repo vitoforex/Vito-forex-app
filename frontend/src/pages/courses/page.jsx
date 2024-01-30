@@ -11,7 +11,6 @@ const Page = () => {
   useEffect(() => {
     async function fetchCourses() {
       const response = await axios.get("/courses_api/");
-      console.log(response);
       setCourses(response.data?.courses);
     }
     fetchCourses();

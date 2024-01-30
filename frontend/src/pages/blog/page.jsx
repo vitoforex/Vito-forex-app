@@ -20,7 +20,7 @@ const Pages = () => {
         setPosts(response.data.posts);
         setPages(response.data.total_pages);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     getBlogPosts();

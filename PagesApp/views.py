@@ -11,10 +11,6 @@ def send_contact_form_email(request):
         message = data.get("message")
         email = data.get("email")
         name = data.get("subject")
-        print(message)
-        print(email)
-        print(name)
-        print(settings.EMAIL_HOST_USER,)
         send_mail(
             "Message from Vito forex contact form",
             message,

@@ -35,7 +35,6 @@ function App() {
     async function getIsUserLoggedInStatus() {
       try {
         const response = await axios.get("/auth/user_status");
-        console.log(response);
         if (response.data.authenticated === false) {
           localStorage.setItem("isAuthenticated", "false");
           dispatch(updateUserIsLoggedIn(false));
@@ -44,7 +43,7 @@ function App() {
           dispatch(updateUserIsLoggedIn(true));
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
     getIsUserLoggedInStatus();

@@ -14,7 +14,6 @@ const Page = () => {
       const response = await axios.get(
         `/courses_api/course/${id}`
       );
-      console.log(response);
       setCourseDetails(response.data);
     };
     getCourseDetails();

@@ -60,7 +60,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.email
     
     def set_plan_expiration(self, plan):
-        print(f"I'm setting the expiration date for: {plan}" )
         if plan == 'basic':
             self.plan_expiration_date = self.plan_start_date + timezone.timedelta(days=30)
         elif plan == 'standard':

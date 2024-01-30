@@ -12,7 +12,6 @@ const Page = () => {
   useEffect(() => {
     const getPostDetails = async () => {
       const response = await axios.get(`/blog_api/${id}`);
-      console.log(response);
       setPost(response.data.post);
     };
     getPostDetails();

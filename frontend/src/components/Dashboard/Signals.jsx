@@ -14,12 +14,12 @@ const Signals = () => {
         const convertedToJSArray = JSON.parse(response.data.signals);
         setSignals(convertedToJSArray);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     }
     getSignals();
   }, []);
-  console.log(signals);
+  
   return (
     <div className="flex items-center justify-center">
       {signals === null ? (
