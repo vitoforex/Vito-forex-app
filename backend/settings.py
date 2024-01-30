@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     "CoursesApp",
     "BlogApp",
     "ForexContentApp",
+    "EventsApp",
 ]
 
 MIDDLEWARE = [

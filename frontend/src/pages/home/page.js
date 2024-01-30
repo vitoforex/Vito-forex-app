@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
-import { HeaderCarousel, TopBlogPosts } from "../../components";
+import { HeaderCarousel, TopBlogPosts, TopEvents } from "../../components";
 import {
   GenericButton,
   FAQs,
@@ -187,17 +187,7 @@ export default function Home() {
             Upcoming Events
           </h2>
         </div>
-          <div className="flex flex-col justify-center items-center py-6">
-            {events.map((event, idx) => (
-              <EventCard
-                title={event.title}
-                image={event.image}
-                date={event.date}
-                venue={event.venue}
-                key={idx}
-              />
-            ))}
-          </div>
+          <TopEvents/>
         </div>
       </div>
 
