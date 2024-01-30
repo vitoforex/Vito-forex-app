@@ -1,7 +1,8 @@
 import React from "react";
 import { GenericButton } from "..";
+import { Link } from "react-router-dom";
 
-const EventCard = ({image, title, date, venue}) => {
+const EventCard = ({image, title, date, venue, link}) => {
   return (
     <div className="w-[80%] bg-[#333] shadow-xl rounded-2xl overflow-hidden my-2">
       <div className="grid md:grid-cols-2 grid-cols-1 gap-10">
@@ -27,10 +28,12 @@ const EventCard = ({image, title, date, venue}) => {
 
           <div className="flex py-2">
             <div className="mr-2">
+            <Link to={link} target="_blank">
             <GenericButton
               text={"Buy Tickets"}
               classes={"bg-gradient-to-r from-primary to-secondary text-white"}
             />    
+            </Link>
             </div>
           </div>
           

@@ -36,7 +36,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
 
-ALLOWED_HOSTS = ["localhost", "vitoforex.com", "http://174.138.7.226", "*" ]
+ALLOWED_HOSTS = ["localhost", "vitoforex.com", "174.138.7.226", "*" ]
 
 
 # Application definition
@@ -171,7 +171,7 @@ STATIC_URL = "/static/"
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "frontend/build/static")]
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static_root")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
@@ -187,14 +187,6 @@ MEDIA_URL = "/media/"  # media url
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")  # were media files are located
 
 REDIRECT_URL = "localhost:3000"
-
-# stripe payments
-
-"""
-STRIPE_SECRET_KEY_TEST = "sk_test_51NnLJiCOWoAHqo4JynKkzgl7VtwPjzbkKPnBREjlXZ2W0PFynxa5oz3eRWxE7bxggafuwMva3XuusoNE4JiiqZn00072uwh35o"
-
-STRIPE_WEB_HOOK_TEST = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
-"""
 
 
 # custom user model

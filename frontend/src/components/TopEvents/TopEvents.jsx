@@ -33,6 +33,7 @@ const TopEvents = () => {
               image={event.event_image}
               date={event.date}
               venue={event.venue}
+              link={event.link}
               key={idx}
             />
           ))}

@@ -2,11 +2,16 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import BlogPost
 from django.http import JsonResponse, HttpResponse
+from django.core.paginator import Paginator
 
 
 
 def post_list(request):
+    page_number = int(request.GET.get('page', 1))
+    posts_per_page = 5
     posts = BlogPost.objects.order_by("-pub_date")
+    paginator = Paginator(posts, posts_per_page)
+    page_posts = paginator.get_page(page_number)
     posts_list = [
         {
             "title": post.title,
@@ -18,9 +23,14 @@ def post_list(request):
             "featured_image": post.featured_image_url(),
             "id": post.pk,
         }
-        for post in posts
+        for post in page_posts
     ]
-    return JsonResponse({'posts':posts_list}, safe=False)
+
+    return JsonResponse({'posts': posts_list, 'total_pages': paginator.num_pages}, safe=False)
+
+
+def post_list_page(request):
+    pass
 
 
 def post_detail(request, pk):
