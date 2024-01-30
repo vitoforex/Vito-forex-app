@@ -1,4 +1,5 @@
 env/
 media/
 static/
+static_root/
 db.sqlite3
