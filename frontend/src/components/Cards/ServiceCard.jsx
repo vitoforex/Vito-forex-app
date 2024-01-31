@@ -5,7 +5,7 @@ import { GenericButton } from "..";
 
 const ServiceCard = ({ icon, name, benefits }) => {
   return (
-    <Link to={"#"}>
+    <Link to={"signals"}>
       <div className="p-10 w-72 rounded-2xl shadow-4xl bg-[#333] flex flex-col items-center justify-center">
         <div>
           <FontAwesomeIcon icon={icon} size="xl" className="text-primary" />
@@ -21,7 +21,7 @@ const ServiceCard = ({ icon, name, benefits }) => {
           ))}
 
           <div className="flex flex-wrap justify-center items-center">
-            <Link to={"/signals"} target="_blank">
+          
               <GenericButton
                 text={"Start Learning"}
                 classes={
@@ -29,7 +29,7 @@ const ServiceCard = ({ icon, name, benefits }) => {
                 }
               />
               
-            </Link>
+      
           </div>
         </div>
       </div>

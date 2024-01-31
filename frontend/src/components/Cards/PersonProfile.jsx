@@ -16,6 +16,7 @@ const PersonProfile = () => {
             </h2>
         </div>
         <div className="flex flex-wrap">
+            {/*
                 <div className="py-2 mr-4">
                     <Link to={'#'}>
                         <FontAwesomeIcon size="2xl" icon={faFacebook} className="text-primary hover:text-white transition-all"/>
@@ -23,12 +24,14 @@ const PersonProfile = () => {
                 </div>
                 <div className="py-2 mx-4">
                     <Link to={'#'}>
-                        <FontAwesomeIcon size="2xl" icon={faWhatsapp} className="text-primary hover:text-white transition-all"/>
+                        <FontAwesomeIcon size="2xl" icon={faLinkedin} className="text-primary hover:text-white transition-all"/>
                     </Link>
                 </div>
+             */}
+
                 <div className="py-2 mx-4">
-                    <Link to={'#'}>
-                        <FontAwesomeIcon size="2xl" icon={faLinkedin} className="text-primary hover:text-white transition-all"/>
+                    <Link to={'https://wa.me/+256708659816'} target='_blank'>
+                        <FontAwesomeIcon size="2xl" icon={faWhatsapp} className="text-primary hover:text-white transition-all"/>
                     </Link>
                 </div>
                 

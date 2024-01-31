@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { GenericButton } from '../../components'
+import { Link } from 'react-router-dom'
 
 const page = () => {
   return (
@@ -86,9 +87,11 @@ const page = () => {
                       Telephone
                     </p>
                     
-                    <p className="text-neutral-200 ">
+            
+                    <Link className="text-neutral-200" to={"tel:256708659816"}>
                      +256708659816
-                    </p>
+                    </Link>
+        
                     
                   </div>
                 </div>
@@ -108,9 +111,11 @@ const page = () => {
                   <p className="mb-2 font-bold dark:text-white">
                       Email
                     </p>
-                    <p className="text-neutral-200 ">
-                      vitoforextrader@gmail.com
-                    </p>
+      
+                    <Link className="text-neutral-200" to={"mailto:vitoforextrader@gmail.com"}>
+                    vitoforextrader@gmail.com
+                    </Link>
+        
                   </div>
                 </div>
               </div>

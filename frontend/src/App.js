@@ -64,14 +64,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/mentorship" element={<Mentorship />} />
           <Route path="/password_reset" element={<Password_reset />} />
-          <Route
-            path="/payment/success*"
-            element={
-              <h1 className="text-6xl bg-slate-600 text-white font-extrabold p-20">
-                Success
-              </h1>
-            }
-          />
+          
           <Route
             path="/posts"
             element={

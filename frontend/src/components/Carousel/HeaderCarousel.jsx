@@ -11,6 +11,7 @@ import {
   faArrowAltCircleLeft,
   faArrowAltCircleRight,
 } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const Images = [
   "https://cdn.pixabay.com/photo/2021/08/06/00/37/stock-trading-6525081_1280.jpg",
@@ -44,16 +45,18 @@ function Carousel() {
               <h1 className="text-white lg:text-6xl text-3xl font-semibold py-4">
                 Trade from anywhere
               </h1>
-              <p className="text-gray-300 text-lg py-2">
+              <p className="text-gray-200 text-xl py-2">
                 With forex trading, you can start trading from the comfort of
                 your home and make big bunks!
               </p>
+              <Link to={"/signals"}>
               <GenericButton
                 text={"Start Trading"}
                 classes={
                   " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
                 }
               />
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -63,16 +66,18 @@ function Carousel() {
               <h1 className="text-white lg:text-6xl text-3xl font-semibold py-4">
                 Trade from anywhere
               </h1>
-              <p className="text-gray-300 text-lg py-2">
+              <p className="text-gray-200 text-xl py-2">
                 With forex trading, you can start trading from the comfort of
                 your home and make big bunks!
               </p>
+              <Link to={"/signals"}>
               <GenericButton
                 text={"Start Trading"}
                 classes={
                   " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
                 }
               />
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -82,15 +87,17 @@ function Carousel() {
               <h1 className="text-white lg:text-6xl text-3xl font-semibold py-4">
                 Join Us In Our Physical Lessons
               </h1>
-              <p className="text-gray-300 text-lg py-2">
+              <p className="text-gray-200 text-xl py-2">
                 We have physical lessons twice a month at Speke resort.
               </p>
+              <Link to={"/signals"}>
               <GenericButton
-                text={"Join Live Lessons"}
+                text={"Start Trading"}
                 classes={
                   " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
                 }
               />
+              </Link>
             </div>
           </div>
         </SwiperSlide>

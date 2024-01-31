@@ -170,10 +170,12 @@ export default function Home() {
 
           </p>
           <div className="flex flex-wrap justify-center items-center">
+          <Link to={"/signals"}>
             <GenericButton
               text={"Start Learning"}
               classes={"bg-gradient-to-r from-primary to-secondary text-white"}
             />
+          </Link>
           </div>
         </div>
       </div>
