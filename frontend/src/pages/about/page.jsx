@@ -16,8 +16,8 @@ const page = () => {
           </h2>
         </div>
         <div className="flex justify-centers items-center">
-          <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-10 pt-10 items-center">
-            <div className="">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-1 gap-10 pt-10 items-center">
+            <div className="flex justify-center">
               <PersonProfile />
             </div>
             <div className="lg:col-span-2">
@@ -41,7 +41,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      <Gallery />
+      {/*<Gallery />*/}
     </main>
   );
 };
