@@ -36,7 +36,7 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
 
 
-ALLOWED_HOSTS = ["localhost", "vitoforex.com", "174.138.7.226", "*" ]
+ALLOWED_HOSTS = ["localhost", "vitoforex.com", "146.190.229.37", "*" ]
 
 
 # Application definition
