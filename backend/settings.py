@@ -77,7 +77,7 @@ SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_NAME = "session_cookie"
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_AGE = 3600  # Set to 1 hour (3600 seconds)
-SESSION_ENGINE = 'django.contrib.sessions.backends.cache'  # Use cache-based sessions
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  
 SESSION_SAVE_EVERY_REQUEST = True
 
 
