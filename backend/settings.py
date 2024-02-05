@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-27_!hoop8bmv8@2d#+ra-6*2z!ac^gr)&9c+u%#=jd9piy@2ww"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # sending emails
 EMAIL_HOST = "smtp.gmail.com"
@@ -72,10 +72,10 @@ MIDDLEWARE = [
 ]
 
 # session settings
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = True
 SESSION_COOKIE_NAME = "session_cookie"
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False
 SESSION_COOKIE_AGE = 3600  # Set to 1 hour (3600 seconds)
 SESSION_ENGINE = 'django.contrib.sessions.backends.cache'  # Use cache-based sessions
 SESSION_SAVE_EVERY_REQUEST = True

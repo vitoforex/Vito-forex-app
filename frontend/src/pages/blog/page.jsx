@@ -15,8 +15,9 @@ const Pages = () => {
       try {
         const response = await axios.get("/blog_api/", {
           params: {
-              page 
-          }});
+            page,
+          },
+        });
         setPosts(response.data.posts);
         setPages(response.data.total_pages);
       } catch (error) {
@@ -26,16 +27,24 @@ const Pages = () => {
     getBlogPosts();
   }, [page]);
 
+  if (Array.isArray(posts) && posts.length === 0) {
+    return (
+      <div className="flex h-[50vh] justify-center items-center">
+        <p className="text-black text-center">No articles!</p>
+      </div>
+    );
+  }
+
   const nextPageHandler = () => {
-    if (page < pages){
-      setPage(page => page+1);
+    if (page < pages) {
+      setPage((page) => page + 1);
     }
-  }
+  };
   const prevPageHandler = () => {
-    if (page > 1){
-      setPage(page => page-1);
+    if (page > 1) {
+      setPage((page) => page - 1);
     }
-  }
+  };
 
   return (
     <>
@@ -143,14 +152,22 @@ const Pages = () => {
           </div>
 
           <div className="mt-20 pagination flex items-center justify-center">
-            <button onClick={prevPageHandler} className="active:scale-95 mx-2 bg-primary text-white py-2 px-4 rounded-lg">
+            <button
+              onClick={prevPageHandler}
+              className="active:scale-95 mx-2 bg-primary text-white py-2 px-4 rounded-lg"
+            >
               <FontAwesomeIcon
                 icon={faArrowLeft}
                 className="text-white font-extrabold"
               />
             </button>
-            <span className="text-lg">Page: {page} / {pages}</span>
-            <button onClick={nextPageHandler} className="active:scale-95 mx-2 bg-primary text-white  py-2 px-4 rounded-lg">
+            <span className="text-lg">
+              Page: {page} / {pages}
+            </span>
+            <button
+              onClick={nextPageHandler}
+              className="active:scale-95 mx-2 bg-primary text-white  py-2 px-4 rounded-lg"
+            >
               <FontAwesomeIcon
                 icon={faArrowRight}
                 className="text-white font-extrabold"

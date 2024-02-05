@@ -14,6 +14,9 @@ import { useLocation } from "react-router-dom";
 const Footer = () => {
   const pathname = useLocation();
   const [currentPath, setCurrentPath] = useState("");
+  const currentDate = new Date();
+  const currentYear = currentDate.getFullYear();
+
 
   useEffect(() => {
     setCurrentPath(pathname.pathname);
@@ -64,20 +67,21 @@ const Footer = () => {
                     KEEP IN TOUCH
                   </h2>
                   <div className="flex flex-wrap">
+                  <div className="py-2 mr-4">
+                      <Link to={"https://wa.me/+256708659816"}>
+                        <FontAwesomeIcon
+                          size="2xl"
+                          icon={faWhatsapp}
+                          className="text-primary hover:text-white transition-all"
+                        />
+                      </Link>
+                    </div>
+                  {/*
                     <div className="py-2 mr-4">
                       <Link to={"#"}>
                         <FontAwesomeIcon
                           size="2xl"
                           icon={faFacebook}
-                          className="text-primary hover:text-white transition-all"
-                        />
-                      </Link>
-                    </div>
-                    <div className="py-2 mx-4">
-                      <Link to={"#"}>
-                        <FontAwesomeIcon
-                          size="2xl"
-                          icon={faWhatsapp}
                           className="text-primary hover:text-white transition-all"
                         />
                       </Link>
@@ -109,6 +113,7 @@ const Footer = () => {
                         />
                       </Link>
                     </div>
+                  */}
                   </div>
                 </div>
               </div>
@@ -169,7 +174,7 @@ const Footer = () => {
               </div>
               <div className="text-center pt-4">
                 <span className="text-gray-300">
-                  © 2023 Vito Forex. All rights reserved.
+                  © {currentYear} Vito Forex. All rights reserved.
                 </span>
               </div>
             </div>
