@@ -47,8 +47,12 @@ def post_detail(request, pk):
             "author_image": post.author.author_image_url(),
             "pub_date": post.pub_date,
             "updated_date": post.updated_date,
-            "featured_image": post.featured_image_url(),
             "id": post.pk,
         }
+    try:
+        post_content["featured_image"] = post.featured_image_url()
+    except ValueError:
+        post_content["featured_image"] = None
+
     
     return JsonResponse({'post':post_content}, safe=False)
