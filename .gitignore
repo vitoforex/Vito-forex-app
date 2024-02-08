@@ -3,3 +3,4 @@ media/
 /static/
 static_root/
 db.sqlite3
+**/__pycache__/
