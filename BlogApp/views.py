@@ -10,19 +10,25 @@ def post_list(request):
     posts = BlogPost.objects.order_by("-pub_date")
     paginator = Paginator(posts, posts_per_page)
     page_posts = paginator.get_page(page_number)
-    posts_list = [
-        {
+    posts_list = []
+
+    for post in page_posts:
+        post_data = {
             "title": post.title,
             "content": post.content,
             "author": post.author.name,
             "author_image": post.author.author_image_url(),
             "pub_date": post.pub_date,
             "updated_date": post.updated_date,
-            "featured_image": post.featured_image_url(),
             "id": post.pk,
         }
-        for post in page_posts
-    ]
+
+        try:
+            post_data["featured_image"] = post.featured_image_url()
+        except ValueError:
+            post_data["featured_image"] = None
+
+        posts_list.append(post_data)
 
     return JsonResponse({'posts': posts_list, 'total_pages': paginator.num_pages}, safe=False)
 
