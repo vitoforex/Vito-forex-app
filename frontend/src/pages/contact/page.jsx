@@ -15,6 +15,7 @@ const page = () => {
       <div
         className="block rounded-lg bg-gray-600 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-[hsla(0,0%,5%,0.7)] dark:shadow-black/20 md:py-16 md:px-12 -mt-[100px] backdrop-blur-[30px]">
         <div className="flex flex-wrap">
+        {/*
           <div className="mb-12 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 lg:w-5/12 lg:px-6">
           <form action="#" class="space-y-8">
             <div>
@@ -122,6 +123,25 @@ const page = () => {
              
             </div>
           </div>
+         */}
+         <div class="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <div className="text-center">
+          <h2 class="custom-underline mb-4 text-4xl tracking-tight font-extrabold text-center text-white">
+            Contact Us
+          </h2>
+        </div>
+          <p class="mb-8 lg:mb-16 font-light text-center text-gray-200  sm:text-xl">
+            Send us a email
+          </p>
+
+          <div className="text-center">
+            <Link className="text-gray-300 md:text-3xl text-xl" to={"mailto:vitoforextrader@gmail.com"}>
+              vitoforextrader@gmail.com
+            </Link>
+          </div>
+
+        
+        </div>
         </div>
       </div>
     </div>

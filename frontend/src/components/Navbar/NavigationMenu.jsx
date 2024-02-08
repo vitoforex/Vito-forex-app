@@ -27,7 +27,7 @@ const NavigationMenu = ({ open, setOpen }) => {
   return (
     <div
       style={open ? { ...openedStyles } : { ...closedStyles }}
-      className={` transition-all ease-in-out duration-[2s] flex justify-center items-center z-50 fixed h-[100vh] bg-[#000] w-[100%] top-0 left-0`}
+      className={` transition-all ease-in-out duration-[2s] flex justify-center items-center z-[100] fixed h-[100vh] bg-[#000] w-[100%] top-0 left-0`}
     >
       <ul className="text-center">
       {

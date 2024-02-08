@@ -235,9 +235,16 @@ export default function Home() {
           </h2>
         </div>
           <p class="mb-8 lg:mb-16 font-light text-center text-gray-500  sm:text-xl">
-            Get in touch!
+            Send us a email
           </p>
-          <form action="#" class="space-y-8">
+
+          <div className="text-center">
+            <Link className="text-gray-400 md:text-3xl text-xl" to={"mailto:vitoforextrader@gmail.com"}>
+              vitoforextrader@gmail.com
+            </Link>
+          </div>
+
+          {/*<form action="#" class="space-y-8">
             <div>
               <label
                 for="email"
@@ -295,7 +302,7 @@ export default function Home() {
                 " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
               }
             />
-          </form>
+          </form>*/}
         </div>
       </section>
 

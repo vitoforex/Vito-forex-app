@@ -9,7 +9,7 @@ const Hamburger = ({open, onClick}) => {
     transform: open ? 'rotate(90deg)' : 'rotate(0deg)', 
   };
   return (
-    <button className="z-[100]" onClick={()=>onClick()}>
+    <button className="z-[150]" onClick={()=>onClick()}>
         {
           open?(
             <FontAwesomeIcon icon={faTimes} style={{height:'40px', width:'40px', fontWeight:'lighter',color:'#fff', ...transitionAnimationStyles}}/>

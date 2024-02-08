@@ -85,14 +85,14 @@ function Carousel() {
           <div className="slider-container_3">
             <div className="">
               <h1 className="text-white lg:text-6xl text-3xl font-semibold py-4">
-                Join Us In Our Physical Lessons
+                Book a physical lesson now
               </h1>
               <p className="text-gray-200 text-xl py-2">
                 We have physical lessons twice a month at Speke resort.
               </p>
-              <Link to={"/signals"}>
+              <Link target="_blank" to={"https://selar.co/vito-forex-mentorship"}>
               <GenericButton
-                text={"Start Trading"}
+                text={"Book Physical Lesson"}
                 classes={
                   " font-bold bg-gradient-to-r px-4 from-primary to-secondary text-white mx-2"
                 }
