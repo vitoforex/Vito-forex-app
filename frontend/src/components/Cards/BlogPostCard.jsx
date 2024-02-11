@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-;
+import { formatDate } from "../../lib/utils";
 
 const BlogPostCard = ({
   image,
@@ -10,18 +10,6 @@ const BlogPostCard = ({
   date,
   post_id
 }) => {
-
-  const monthsShort = [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
-  ];
-
-  const dateObj = new Date(date);
-  const year = dateObj.getFullYear().toString();
-  const month = monthsShort[(dateObj.getMonth() + 1).toString().padStart(2, '0')]; 
-  const day = dateObj.getDate().toString().padStart(2, '0');
-
-
   return (
     <Link to={`/blog/${post_id}`}>
     <div className="bg-[#333] p-4 rounded-2xl shadow-2xl w-[280px]">
@@ -58,7 +46,7 @@ const BlogPostCard = ({
             </h2>
             <div className="flex ">
                 <div className="text-gray-300 text-[9px]">
-                    {`${day} ${month} ${year}`}
+                    {formatDate(date)}
                 </div>
                
             </div>

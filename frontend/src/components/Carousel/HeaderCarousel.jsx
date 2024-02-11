@@ -88,7 +88,7 @@ function Carousel() {
                 Book a physical lesson now
               </h1>
               <p className="text-gray-200 text-xl py-2">
-                We have physical lessons twice a month at Speke resort.
+                Book a one on one session
               </p>
               <Link target="_blank" to={"https://selar.co/vito-forex-mentorship"}>
               <GenericButton

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./styles.css";
 import { GenericButton, Spinner } from "../../../components";
@@ -37,12 +37,14 @@ const Page = () => {
                     }}
                   ></div>
                   <div className="flex justify-center items-center">
+                  <Link to={"https://selar.co/vito-forex-mentorship"} target="_blank">
                     <GenericButton
                       text={"Get Started"}
                       classes={
                         " font-bold bg-gradient-to-r from-primary to-secondary text-white mx-2"
                       }
                     />
+                  </Link>
                   </div>
                 </div>
               </div>
