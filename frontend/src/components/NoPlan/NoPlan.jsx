@@ -7,8 +7,7 @@ const NoPlan = () => {
   return (
     <div className='flex justify-center items-center'>
         <div className="text-center">
-            <h2 className="font-bold text-xl py-4">You currently have no plan!</h2>
-            <p className="text-lg pb-4">Pick a plan to get started</p>
+            <h2 className="font-bold text-xl py-4">Get a signal plan now!</h2>
             <GenericButton
                 text={"Pick a Plan"}
                 classes={"text-white bg-secondary rounded-[0px] py-4 mb-2"}
